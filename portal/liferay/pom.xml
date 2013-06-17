@@ -9,7 +9,7 @@
   <groupId>de.i3mainz.flexgeo.portal</groupId>
   <artifactId>liferay</artifactId>
   <packaging>pom</packaging>
-  <name>liferay</name>
+  <name>FlexGeo Liferay Modules</name>
   <modules>
   	<module>portlets</module>
   	<module>services</module>

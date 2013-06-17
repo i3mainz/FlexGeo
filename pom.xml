@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.i3mainz</groupId>
+	<artifactId>flexgeo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>FlexGeo</name>
+	<organization>
+		<name>i3mainz</name>
+		<url>http://www.i3mainz.fh-mainz.de</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>nikolai.bock</id>
+			<name>Nikolai Bock</name>
+			<email>nikolai.bock@fh-mainz.de</email>
+			<url>http://www.i3mainz.fh-mainz.de/Article353.html</url>
+			<organization>i3mainz - Institut für Raumbezogene Informations- und Messtechnik</organization>
+			<organizationUrl>http://www.i3mainz.fh-mainz.de</organizationUrl>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Developer</role>
+				<role>Systemplaner</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Prof. Dr. Klaus Böhm</name>
+			<email>klaus.boehm@fh-mainz.de</email>
+			<url>http://www.i3mainz.fh-mainz.de/Article42.html</url>
+			<organization>i3mainz - Institut für Raumbezogene Informations- und Messtechnik</organization>
+			<organizationUrl>http://www.i3mainz.fh-mainz.de</organizationUrl>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Projektleitung</role>
+			</roles>
+		</contributor>
+	</contributors>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>jboss-release</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>sonatype-release</id>
+			<name>Sonatype Repository</name>
+			<url>http://oss.sonatype.org/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>sonatype-release</id>
+			<name>Sonatype Repository</name>
+			<url>http://oss.sonatype.org/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<modules>
+		<module>portal</module>
+	</modules>
+</project>

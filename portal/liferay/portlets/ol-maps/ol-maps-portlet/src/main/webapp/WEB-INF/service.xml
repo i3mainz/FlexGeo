@@ -85,8 +85,5 @@
 		<reference package-path="com.liferay.portal" entity="Group" />
 		<reference package-path="com.liferay.portal" entity="Organization" />
 		<reference package-path="com.liferay.portal" entity="PortletPreferences" />
-		<reference package-path="de.i3mainz.flexgeo.portal.liferay.services"
-			entity="OGCService" />
-
 	</entity>
 </service-builder>

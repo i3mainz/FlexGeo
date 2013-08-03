@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.olmaps", "de.i3mainz.flexgeo.portal.liferay.services.service", "ol-maps-portlet");

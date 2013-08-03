@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="de.i3mainz.flexgeo.portal.liferay.services.model.OGCService">
+		<field name="uuid" type="String" />
+		<field name="serviceId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="serviceName" type="String" />
+		<field name="serviceURL" type="String" />
+		<field name="serviceType" type="String" />
+	</model>
+	<model name="de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer">
+		<field name="uuid" type="String" />
+		<field name="layerId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="layerName" type="String" />
+		<field name="layerServiceId" type="long" />
+		<field name="layerOptions" type="String" />
+		<field name="layerDisplayOptions" type="String" />
+	</model>
+</model-hints>

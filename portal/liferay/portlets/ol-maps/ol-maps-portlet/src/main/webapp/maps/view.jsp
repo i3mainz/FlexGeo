@@ -1,3 +1,14 @@
 <%@ include file="init.jsp"%>
 
-This is the <b>ol-maps</b>.
+<div id="map"></div>
+
+<script>
+AUI().ready(function(A){
+		var layer = new OpenLayers.Layer.OSM("OSM Simple");
+
+		var map = new OpenLayers.Map('map');
+		map.addLayers([ layer]);
+		map.zoomToMaxExtent();
+});
+</script>
+	

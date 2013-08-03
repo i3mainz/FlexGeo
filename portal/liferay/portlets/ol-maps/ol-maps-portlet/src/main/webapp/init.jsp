@@ -15,5 +15,24 @@
 --%>
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ page import="javax.portlet.ResourceURL"%>
+<%@ page import="javax.portlet.RenderResponse"%>
+<%@ page import="com.liferay.util.portlet.PortletProps" %>
+<%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %>
+<%@ page import="com.liferay.portal.kernel.language.LanguageWrapper" %>
+<%@ page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil" %>
+<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
 
 <portlet:defineObjects />
+
+<%
+	ResourceURL currentResUrl = renderResponse.createResourceURL();
+	String geoserverurl = PortletProps.get("goancontrol.geoserver.url");
+	if(geoserverurl==null || geoserverurl.equals("")){
+		geoserverurl="http://localhost/geoserver";
+	}
+	
+	//System.out.println("Aktueller Geoserver im LayerSwitcher-Portlet: " + geoserverurl);
+%>

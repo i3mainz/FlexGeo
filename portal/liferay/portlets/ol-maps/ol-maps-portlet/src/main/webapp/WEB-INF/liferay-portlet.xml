@@ -6,13 +6,16 @@
 		<portlet-name>1</portlet-name>
 		<icon>/maps/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<header-portlet-javascript>/lib/OpenLayers-2.13/OpenLayers.js</header-portlet-javascript>
+<!-- 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> -->
 	</portlet>
 	<portlet>
 		<portlet-name>2</portlet-name>
 		<icon>/layer-management/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<header-portlet-css>/layer-management/css/slider.css</header-portlet-css>
+<!-- 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> -->
+		<footer-portlet-javascript>/layer-management/js/Slider.js</footer-portlet-javascript>
 	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>

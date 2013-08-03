@@ -42,6 +42,16 @@ public class OGCServiceLocalServiceClpInvoker {
     private String[] _methodParameterTypes69;
     private String _methodName70;
     private String[] _methodParameterTypes70;
+    private String _methodName75;
+    private String[] _methodParameterTypes75;
+    private String _methodName76;
+    private String[] _methodParameterTypes76;
+    private String _methodName77;
+    private String[] _methodParameterTypes77;
+    private String _methodName78;
+    private String[] _methodParameterTypes78;
+    private String _methodName79;
+    private String[] _methodParameterTypes79;
 
     public OGCServiceLocalServiceClpInvoker() {
         _methodName0 = "addOGCService";
@@ -133,6 +143,38 @@ public class OGCServiceLocalServiceClpInvoker {
         _methodName70 = "setBeanIdentifier";
 
         _methodParameterTypes70 = new String[] { "java.lang.String" };
+
+        _methodName75 = "addOGCService";
+
+        _methodParameterTypes75 = new String[] {
+                "long", "java.lang.String", "java.lang.String", "java.net.URL",
+                "java.lang.String", "java.lang.String",
+                "com.liferay.portal.service.ServiceContext"
+            };
+
+        _methodName76 = "addEntryResources";
+
+        _methodParameterTypes76 = new String[] {
+                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
+                "boolean", "boolean"
+            };
+
+        _methodName77 = "addEntryResources";
+
+        _methodParameterTypes77 = new String[] {
+                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
+                "java.lang.String[][]", "java.lang.String[][]"
+            };
+
+        _methodName78 = "addEntryResources";
+
+        _methodParameterTypes78 = new String[] { "long", "boolean", "boolean" };
+
+        _methodName79 = "addEntryResources";
+
+        _methodParameterTypes79 = new String[] {
+                "long", "java.lang.String[][]", "java.lang.String[][]"
+            };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -233,6 +275,44 @@ public class OGCServiceLocalServiceClpInvoker {
         if (_methodName70.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             OGCServiceLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
+        }
+
+        if (_methodName75.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes75, parameterTypes)) {
+            return OGCServiceLocalServiceUtil.addOGCService(((Long) arguments[0]).longValue(),
+                (java.lang.String) arguments[1],
+                (java.lang.String) arguments[2], (java.net.URL) arguments[3],
+                (java.lang.String) arguments[4],
+                (java.lang.String) arguments[5],
+                (com.liferay.portal.service.ServiceContext) arguments[6]);
+        }
+
+        if (_methodName76.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes76, parameterTypes)) {
+            OGCServiceLocalServiceUtil.addEntryResources((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0],
+                ((Boolean) arguments[1]).booleanValue(),
+                ((Boolean) arguments[2]).booleanValue());
+        }
+
+        if (_methodName77.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes77, parameterTypes)) {
+            OGCServiceLocalServiceUtil.addEntryResources((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0],
+                (java.lang.String[]) arguments[1],
+                (java.lang.String[]) arguments[2]);
+        }
+
+        if (_methodName78.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes78, parameterTypes)) {
+            OGCServiceLocalServiceUtil.addEntryResources(((Long) arguments[0]).longValue(),
+                ((Boolean) arguments[1]).booleanValue(),
+                ((Boolean) arguments[2]).booleanValue());
+        }
+
+        if (_methodName79.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes79, parameterTypes)) {
+            OGCServiceLocalServiceUtil.addEntryResources(((Long) arguments[0]).longValue(),
+                (java.lang.String[]) arguments[1],
+                (java.lang.String[]) arguments[2]);
         }
 
         throw new UnsupportedOperationException();

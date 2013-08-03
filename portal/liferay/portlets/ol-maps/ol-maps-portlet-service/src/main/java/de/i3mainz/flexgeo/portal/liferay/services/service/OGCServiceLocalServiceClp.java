@@ -41,6 +41,16 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
     private String[] _methodParameterTypes16;
     private String _methodName17;
     private String[] _methodParameterTypes17;
+    private String _methodName19;
+    private String[] _methodParameterTypes19;
+    private String _methodName20;
+    private String[] _methodParameterTypes20;
+    private String _methodName21;
+    private String[] _methodParameterTypes21;
+    private String _methodName22;
+    private String[] _methodParameterTypes22;
+    private String _methodName23;
+    private String[] _methodParameterTypes23;
 
     public OGCServiceLocalServiceClp(
         InvokableLocalService invokableLocalService) {
@@ -135,6 +145,38 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         _methodName17 = "setBeanIdentifier";
 
         _methodParameterTypes17 = new String[] { "java.lang.String" };
+
+        _methodName19 = "addOGCService";
+
+        _methodParameterTypes19 = new String[] {
+                "long", "java.lang.String", "java.lang.String", "java.net.URL",
+                "java.lang.String", "java.lang.String",
+                "com.liferay.portal.service.ServiceContext"
+            };
+
+        _methodName20 = "addEntryResources";
+
+        _methodParameterTypes20 = new String[] {
+                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
+                "boolean", "boolean"
+            };
+
+        _methodName21 = "addEntryResources";
+
+        _methodParameterTypes21 = new String[] {
+                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
+                "java.lang.String[][]", "java.lang.String[][]"
+            };
+
+        _methodName22 = "addEntryResources";
+
+        _methodParameterTypes22 = new String[] { "long", "boolean", "boolean" };
+
+        _methodName23 = "addEntryResources";
+
+        _methodParameterTypes23 = new String[] {
+                "long", "java.lang.String[][]", "java.lang.String[][]"
+            };
     }
 
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService addOGCService(
@@ -627,5 +669,186 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
         throw new UnsupportedOperationException();
+    }
+
+    public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService addOGCService(
+        long userId, java.lang.String serviceName,
+        java.lang.String serviceType, java.net.URL serviceURL,
+        java.lang.String content, java.lang.String format,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName19,
+                    _methodParameterTypes19,
+                    new Object[] {
+                        userId,
+                        
+                    ClpSerializer.translateInput(serviceName),
+                        
+                    ClpSerializer.translateInput(serviceType),
+                        
+                    ClpSerializer.translateInput(serviceURL),
+                        
+                    ClpSerializer.translateInput(content),
+                        
+                    ClpSerializer.translateInput(format),
+                        
+                    ClpSerializer.translateInput(serviceContext)
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
+    }
+
+    public void addEntryResources(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
+        boolean addGroupPermissions, boolean addGuestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            _invokableLocalService.invokeMethod(_methodName20,
+                _methodParameterTypes20,
+                new Object[] {
+                    ClpSerializer.translateInput(ogcService),
+                    
+                addGroupPermissions,
+                    
+                addGuestPermissions
+                });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+    }
+
+    public void addEntryResources(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
+        java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            _invokableLocalService.invokeMethod(_methodName21,
+                _methodParameterTypes21,
+                new Object[] {
+                    ClpSerializer.translateInput(ogcService),
+                    
+                ClpSerializer.translateInput(groupPermissions),
+                    
+                ClpSerializer.translateInput(guestPermissions)
+                });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+    }
+
+    public void addEntryResources(long entryId, boolean addGroupPermissions,
+        boolean addGuestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            _invokableLocalService.invokeMethod(_methodName22,
+                _methodParameterTypes22,
+                new Object[] { entryId, addGroupPermissions, addGuestPermissions });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+    }
+
+    public void addEntryResources(long entryId,
+        java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        try {
+            _invokableLocalService.invokeMethod(_methodName23,
+                _methodParameterTypes23,
+                new Object[] {
+                    entryId,
+                    
+                ClpSerializer.translateInput(groupPermissions),
+                    
+                ClpSerializer.translateInput(guestPermissions)
+                });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
     }
 }

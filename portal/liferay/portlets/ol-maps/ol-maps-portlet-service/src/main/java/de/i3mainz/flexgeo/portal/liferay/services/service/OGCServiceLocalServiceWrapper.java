@@ -259,6 +259,51 @@ public class OGCServiceLocalServiceWrapper implements OGCServiceLocalService,
             arguments);
     }
 
+    public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService addOGCService(
+        long userId, java.lang.String serviceName,
+        java.lang.String serviceType, java.net.URL serviceURL,
+        java.lang.String content, java.lang.String format,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return _ogcServiceLocalService.addOGCService(userId, serviceName,
+            serviceType, serviceURL, content, format, serviceContext);
+    }
+
+    public void addEntryResources(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
+        boolean addGroupPermissions, boolean addGuestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        _ogcServiceLocalService.addEntryResources(ogcService,
+            addGroupPermissions, addGuestPermissions);
+    }
+
+    public void addEntryResources(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
+        java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        _ogcServiceLocalService.addEntryResources(ogcService, groupPermissions,
+            guestPermissions);
+    }
+
+    public void addEntryResources(long entryId, boolean addGroupPermissions,
+        boolean addGuestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        _ogcServiceLocalService.addEntryResources(entryId, addGroupPermissions,
+            addGuestPermissions);
+    }
+
+    public void addEntryResources(long entryId,
+        java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        _ogcServiceLocalService.addEntryResources(entryId, groupPermissions,
+            guestPermissions);
+    }
+
     /**
      * @deprecated Renamed to {@link #getWrappedService}
      */

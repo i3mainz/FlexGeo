@@ -263,6 +263,53 @@ public class OGCServiceLocalServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService addOGCService(
+        long userId, java.lang.String serviceName,
+        java.lang.String serviceType, java.net.URL serviceURL,
+        java.lang.String content, java.lang.String format,
+        com.liferay.portal.service.ServiceContext serviceContext)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .addOGCService(userId, serviceName, serviceType, serviceURL,
+            content, format, serviceContext);
+    }
+
+    public static void addEntryResources(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
+        boolean addGroupPermissions, boolean addGuestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService()
+            .addEntryResources(ogcService, addGroupPermissions,
+            addGuestPermissions);
+    }
+
+    public static void addEntryResources(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
+        java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService()
+            .addEntryResources(ogcService, groupPermissions, guestPermissions);
+    }
+
+    public static void addEntryResources(long entryId,
+        boolean addGroupPermissions, boolean addGuestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService()
+            .addEntryResources(entryId, addGroupPermissions, addGuestPermissions);
+    }
+
+    public static void addEntryResources(long entryId,
+        java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        getService()
+            .addEntryResources(entryId, groupPermissions, guestPermissions);
+    }
+
     public static void clearService() {
         _service = null;
     }

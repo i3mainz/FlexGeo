@@ -3,12 +3,10 @@ package de.i3mainz.flexgeo.portal.liferay.services.service;
 import com.liferay.portal.service.ServiceWrapper;
 
 /**
- * <p>
- * This class is a wrapper for {@link OGCServiceService}.
- * </p>
+ * Provides a wrapper for {@link OGCServiceService}.
  *
- * @author    Brian Wing Shun Chan
- * @see       OGCServiceService
+ * @author Brian Wing Shun Chan
+ * @see OGCServiceService
  * @generated
  */
 public class OGCServiceServiceWrapper implements OGCServiceService,
@@ -24,6 +22,7 @@ public class OGCServiceServiceWrapper implements OGCServiceService,
     *
     * @return the Spring bean ID for this bean
     */
+    @Override
     public java.lang.String getBeanIdentifier() {
         return _ogcServiceService.getBeanIdentifier();
     }
@@ -33,10 +32,12 @@ public class OGCServiceServiceWrapper implements OGCServiceService,
     *
     * @param beanIdentifier the Spring bean ID for this bean
     */
+    @Override
     public void setBeanIdentifier(java.lang.String beanIdentifier) {
         _ogcServiceService.setBeanIdentifier(beanIdentifier);
     }
 
+    @Override
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
@@ -44,23 +45,25 @@ public class OGCServiceServiceWrapper implements OGCServiceService,
     }
 
     /**
-     * @deprecated Renamed to {@link #getWrappedService}
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */
     public OGCServiceService getWrappedOGCServiceService() {
         return _ogcServiceService;
     }
 
     /**
-     * @deprecated Renamed to {@link #setWrappedService}
+     * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
      */
     public void setWrappedOGCServiceService(OGCServiceService ogcServiceService) {
         _ogcServiceService = ogcServiceService;
     }
 
+    @Override
     public OGCServiceService getWrappedService() {
         return _ogcServiceService;
     }
 
+    @Override
     public void setWrappedService(OGCServiceService ogcServiceService) {
         _ogcServiceService = ogcServiceService;
     }

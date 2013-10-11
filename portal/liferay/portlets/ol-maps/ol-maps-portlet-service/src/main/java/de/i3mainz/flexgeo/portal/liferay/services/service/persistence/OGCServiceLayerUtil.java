@@ -49,7 +49,7 @@ public class OGCServiceLayerUtil {
     /**
      * @see com.liferay.portal.service.persistence.BasePersistence#countWithDynamicQuery(DynamicQuery)
      */
-    public long countWithDynamicQuery(DynamicQuery dynamicQuery)
+    public static long countWithDynamicQuery(DynamicQuery dynamicQuery)
         throws SystemException {
         return getPersistence().countWithDynamicQuery(dynamicQuery);
     }
@@ -83,100 +83,19 @@ public class OGCServiceLayerUtil {
     }
 
     /**
-     * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel, boolean)
+     * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel)
+     */
+    public static OGCServiceLayer update(OGCServiceLayer ogcServiceLayer)
+        throws SystemException {
+        return getPersistence().update(ogcServiceLayer);
+    }
+
+    /**
+     * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel, ServiceContext)
      */
     public static OGCServiceLayer update(OGCServiceLayer ogcServiceLayer,
-        boolean merge) throws SystemException {
-        return getPersistence().update(ogcServiceLayer, merge);
-    }
-
-    /**
-     * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel, boolean, ServiceContext)
-     */
-    public static OGCServiceLayer update(OGCServiceLayer ogcServiceLayer,
-        boolean merge, ServiceContext serviceContext) throws SystemException {
-        return getPersistence().update(ogcServiceLayer, merge, serviceContext);
-    }
-
-    /**
-    * Caches the o g c service layer in the entity cache if it is enabled.
-    *
-    * @param ogcServiceLayer the o g c service layer
-    */
-    public static void cacheResult(
-        de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer ogcServiceLayer) {
-        getPersistence().cacheResult(ogcServiceLayer);
-    }
-
-    /**
-    * Caches the o g c service layers in the entity cache if it is enabled.
-    *
-    * @param ogcServiceLayers the o g c service layers
-    */
-    public static void cacheResult(
-        java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer> ogcServiceLayers) {
-        getPersistence().cacheResult(ogcServiceLayers);
-    }
-
-    /**
-    * Creates a new o g c service layer with the primary key. Does not add the o g c service layer to the database.
-    *
-    * @param layerId the primary key for the new o g c service layer
-    * @return the new o g c service layer
-    */
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer create(
-        long layerId) {
-        return getPersistence().create(layerId);
-    }
-
-    /**
-    * Removes the o g c service layer with the primary key from the database. Also notifies the appropriate model listeners.
-    *
-    * @param layerId the primary key of the o g c service layer
-    * @return the o g c service layer that was removed
-    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a o g c service layer with the primary key could not be found
-    * @throws SystemException if a system exception occurred
-    */
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer remove(
-        long layerId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
-        return getPersistence().remove(layerId);
-    }
-
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer updateImpl(
-        de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer ogcServiceLayer,
-        boolean merge)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getPersistence().updateImpl(ogcServiceLayer, merge);
-    }
-
-    /**
-    * Returns the o g c service layer with the primary key or throws a {@link de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException} if it could not be found.
-    *
-    * @param layerId the primary key of the o g c service layer
-    * @return the o g c service layer
-    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a o g c service layer with the primary key could not be found
-    * @throws SystemException if a system exception occurred
-    */
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer findByPrimaryKey(
-        long layerId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
-        return getPersistence().findByPrimaryKey(layerId);
-    }
-
-    /**
-    * Returns the o g c service layer with the primary key or returns <code>null</code> if it could not be found.
-    *
-    * @param layerId the primary key of the o g c service layer
-    * @return the o g c service layer, or <code>null</code> if a o g c service layer with the primary key could not be found
-    * @throws SystemException if a system exception occurred
-    */
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer fetchByPrimaryKey(
-        long layerId)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getPersistence().fetchByPrimaryKey(layerId);
+        ServiceContext serviceContext) throws SystemException {
+        return getPersistence().update(ogcServiceLayer, serviceContext);
     }
 
     /**
@@ -196,7 +115,7 @@ public class OGCServiceLayerUtil {
     * Returns a range of all the o g c service layers where uuid = &#63;.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param uuid the uuid
@@ -215,7 +134,7 @@ public class OGCServiceLayerUtil {
     * Returns an ordered range of all the o g c service layers where uuid = &#63;.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param uuid the uuid
@@ -316,6 +235,29 @@ public class OGCServiceLayerUtil {
     }
 
     /**
+    * Removes all the o g c service layers where uuid = &#63; from the database.
+    *
+    * @param uuid the uuid
+    * @throws SystemException if a system exception occurred
+    */
+    public static void removeByUuid(java.lang.String uuid)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getPersistence().removeByUuid(uuid);
+    }
+
+    /**
+    * Returns the number of o g c service layers where uuid = &#63;.
+    *
+    * @param uuid the uuid
+    * @return the number of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static int countByUuid(java.lang.String uuid)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().countByUuid(uuid);
+    }
+
+    /**
     * Returns the o g c service layer where uuid = &#63; and groupId = &#63; or throws a {@link de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException} if it could not be found.
     *
     * @param uuid the uuid
@@ -361,6 +303,209 @@ public class OGCServiceLayerUtil {
     }
 
     /**
+    * Removes the o g c service layer where uuid = &#63; and groupId = &#63; from the database.
+    *
+    * @param uuid the uuid
+    * @param groupId the group ID
+    * @return the o g c service layer that was removed
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer removeByUUID_G(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
+        return getPersistence().removeByUUID_G(uuid, groupId);
+    }
+
+    /**
+    * Returns the number of o g c service layers where uuid = &#63; and groupId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param groupId the group ID
+    * @return the number of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static int countByUUID_G(java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().countByUUID_G(uuid, groupId);
+    }
+
+    /**
+    * Returns all the o g c service layers where uuid = &#63; and companyId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @return the matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer> findByUuid_C(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().findByUuid_C(uuid, companyId);
+    }
+
+    /**
+    * Returns a range of all the o g c service layers where uuid = &#63; and companyId = &#63;.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param start the lower bound of the range of o g c service layers
+    * @param end the upper bound of the range of o g c service layers (not inclusive)
+    * @return the range of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer> findByUuid_C(
+        java.lang.String uuid, long companyId, int start, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().findByUuid_C(uuid, companyId, start, end);
+    }
+
+    /**
+    * Returns an ordered range of all the o g c service layers where uuid = &#63; and companyId = &#63;.
+    *
+    * <p>
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+    * </p>
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param start the lower bound of the range of o g c service layers
+    * @param end the upper bound of the range of o g c service layers (not inclusive)
+    * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+    * @return the ordered range of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer> findByUuid_C(
+        java.lang.String uuid, long companyId, int start, int end,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence()
+                   .findByUuid_C(uuid, companyId, start, end, orderByComparator);
+    }
+
+    /**
+    * Returns the first o g c service layer in the ordered set where uuid = &#63; and companyId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the first matching o g c service layer
+    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a matching o g c service layer could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer findByUuid_C_First(
+        java.lang.String uuid, long companyId,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
+        return getPersistence()
+                   .findByUuid_C_First(uuid, companyId, orderByComparator);
+    }
+
+    /**
+    * Returns the first o g c service layer in the ordered set where uuid = &#63; and companyId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the first matching o g c service layer, or <code>null</code> if a matching o g c service layer could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer fetchByUuid_C_First(
+        java.lang.String uuid, long companyId,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence()
+                   .fetchByUuid_C_First(uuid, companyId, orderByComparator);
+    }
+
+    /**
+    * Returns the last o g c service layer in the ordered set where uuid = &#63; and companyId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the last matching o g c service layer
+    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a matching o g c service layer could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer findByUuid_C_Last(
+        java.lang.String uuid, long companyId,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
+        return getPersistence()
+                   .findByUuid_C_Last(uuid, companyId, orderByComparator);
+    }
+
+    /**
+    * Returns the last o g c service layer in the ordered set where uuid = &#63; and companyId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the last matching o g c service layer, or <code>null</code> if a matching o g c service layer could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer fetchByUuid_C_Last(
+        java.lang.String uuid, long companyId,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence()
+                   .fetchByUuid_C_Last(uuid, companyId, orderByComparator);
+    }
+
+    /**
+    * Returns the o g c service layers before and after the current o g c service layer in the ordered set where uuid = &#63; and companyId = &#63;.
+    *
+    * @param layerId the primary key of the current o g c service layer
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+    * @return the previous, current, and next o g c service layer
+    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a o g c service layer with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer[] findByUuid_C_PrevAndNext(
+        long layerId, java.lang.String uuid, long companyId,
+        com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
+        return getPersistence()
+                   .findByUuid_C_PrevAndNext(layerId, uuid, companyId,
+            orderByComparator);
+    }
+
+    /**
+    * Removes all the o g c service layers where uuid = &#63; and companyId = &#63; from the database.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @throws SystemException if a system exception occurred
+    */
+    public static void removeByUuid_C(java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getPersistence().removeByUuid_C(uuid, companyId);
+    }
+
+    /**
+    * Returns the number of o g c service layers where uuid = &#63; and companyId = &#63;.
+    *
+    * @param uuid the uuid
+    * @param companyId the company ID
+    * @return the number of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static int countByUuid_C(java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().countByUuid_C(uuid, companyId);
+    }
+
+    /**
     * Returns all the o g c service layers where groupId = &#63;.
     *
     * @param groupId the group ID
@@ -377,7 +522,7 @@ public class OGCServiceLayerUtil {
     * Returns a range of all the o g c service layers where groupId = &#63;.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param groupId the group ID
@@ -396,7 +541,7 @@ public class OGCServiceLayerUtil {
     * Returns an ordered range of all the o g c service layers where groupId = &#63;.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param groupId the group ID
@@ -499,6 +644,29 @@ public class OGCServiceLayerUtil {
     }
 
     /**
+    * Removes all the o g c service layers where groupId = &#63; from the database.
+    *
+    * @param groupId the group ID
+    * @throws SystemException if a system exception occurred
+    */
+    public static void removeByGroupId(long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getPersistence().removeByGroupId(groupId);
+    }
+
+    /**
+    * Returns the number of o g c service layers where groupId = &#63;.
+    *
+    * @param groupId the group ID
+    * @return the number of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static int countByGroupId(long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().countByGroupId(groupId);
+    }
+
+    /**
     * Returns all the o g c service layers where groupId = &#63; and layerName = &#63;.
     *
     * @param groupId the group ID
@@ -516,7 +684,7 @@ public class OGCServiceLayerUtil {
     * Returns a range of all the o g c service layers where groupId = &#63; and layerName = &#63;.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param groupId the group ID
@@ -536,7 +704,7 @@ public class OGCServiceLayerUtil {
     * Returns an ordered range of all the o g c service layers where groupId = &#63; and layerName = &#63;.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param groupId the group ID
@@ -649,6 +817,111 @@ public class OGCServiceLayerUtil {
     }
 
     /**
+    * Removes all the o g c service layers where groupId = &#63; and layerName = &#63; from the database.
+    *
+    * @param groupId the group ID
+    * @param layerName the layer name
+    * @throws SystemException if a system exception occurred
+    */
+    public static void removeByG_lN(long groupId, java.lang.String layerName)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        getPersistence().removeByG_lN(groupId, layerName);
+    }
+
+    /**
+    * Returns the number of o g c service layers where groupId = &#63; and layerName = &#63;.
+    *
+    * @param groupId the group ID
+    * @param layerName the layer name
+    * @return the number of matching o g c service layers
+    * @throws SystemException if a system exception occurred
+    */
+    public static int countByG_lN(long groupId, java.lang.String layerName)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().countByG_lN(groupId, layerName);
+    }
+
+    /**
+    * Caches the o g c service layer in the entity cache if it is enabled.
+    *
+    * @param ogcServiceLayer the o g c service layer
+    */
+    public static void cacheResult(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer ogcServiceLayer) {
+        getPersistence().cacheResult(ogcServiceLayer);
+    }
+
+    /**
+    * Caches the o g c service layers in the entity cache if it is enabled.
+    *
+    * @param ogcServiceLayers the o g c service layers
+    */
+    public static void cacheResult(
+        java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer> ogcServiceLayers) {
+        getPersistence().cacheResult(ogcServiceLayers);
+    }
+
+    /**
+    * Creates a new o g c service layer with the primary key. Does not add the o g c service layer to the database.
+    *
+    * @param layerId the primary key for the new o g c service layer
+    * @return the new o g c service layer
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer create(
+        long layerId) {
+        return getPersistence().create(layerId);
+    }
+
+    /**
+    * Removes the o g c service layer with the primary key from the database. Also notifies the appropriate model listeners.
+    *
+    * @param layerId the primary key of the o g c service layer
+    * @return the o g c service layer that was removed
+    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a o g c service layer with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer remove(
+        long layerId)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
+        return getPersistence().remove(layerId);
+    }
+
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer updateImpl(
+        de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer ogcServiceLayer)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().updateImpl(ogcServiceLayer);
+    }
+
+    /**
+    * Returns the o g c service layer with the primary key or throws a {@link de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException} if it could not be found.
+    *
+    * @param layerId the primary key of the o g c service layer
+    * @return the o g c service layer
+    * @throws de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException if a o g c service layer with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer findByPrimaryKey(
+        long layerId)
+        throws com.liferay.portal.kernel.exception.SystemException,
+            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
+        return getPersistence().findByPrimaryKey(layerId);
+    }
+
+    /**
+    * Returns the o g c service layer with the primary key or returns <code>null</code> if it could not be found.
+    *
+    * @param layerId the primary key of the o g c service layer
+    * @return the o g c service layer, or <code>null</code> if a o g c service layer with the primary key could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer fetchByPrimaryKey(
+        long layerId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getPersistence().fetchByPrimaryKey(layerId);
+    }
+
+    /**
     * Returns all the o g c service layers.
     *
     * @return the o g c service layers
@@ -663,7 +936,7 @@ public class OGCServiceLayerUtil {
     * Returns a range of all the o g c service layers.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param start the lower bound of the range of o g c service layers
@@ -681,7 +954,7 @@ public class OGCServiceLayerUtil {
     * Returns an ordered range of all the o g c service layers.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceLayerModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param start the lower bound of the range of o g c service layers
@@ -698,55 +971,6 @@ public class OGCServiceLayerUtil {
     }
 
     /**
-    * Removes all the o g c service layers where uuid = &#63; from the database.
-    *
-    * @param uuid the uuid
-    * @throws SystemException if a system exception occurred
-    */
-    public static void removeByUuid(java.lang.String uuid)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        getPersistence().removeByUuid(uuid);
-    }
-
-    /**
-    * Removes the o g c service layer where uuid = &#63; and groupId = &#63; from the database.
-    *
-    * @param uuid the uuid
-    * @param groupId the group ID
-    * @return the o g c service layer that was removed
-    * @throws SystemException if a system exception occurred
-    */
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer removeByUUID_G(
-        java.lang.String uuid, long groupId)
-        throws com.liferay.portal.kernel.exception.SystemException,
-            de.i3mainz.flexgeo.portal.liferay.services.NoSuchOGCServiceLayerException {
-        return getPersistence().removeByUUID_G(uuid, groupId);
-    }
-
-    /**
-    * Removes all the o g c service layers where groupId = &#63; from the database.
-    *
-    * @param groupId the group ID
-    * @throws SystemException if a system exception occurred
-    */
-    public static void removeByGroupId(long groupId)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        getPersistence().removeByGroupId(groupId);
-    }
-
-    /**
-    * Removes all the o g c service layers where groupId = &#63; and layerName = &#63; from the database.
-    *
-    * @param groupId the group ID
-    * @param layerName the layer name
-    * @throws SystemException if a system exception occurred
-    */
-    public static void removeByG_lN(long groupId, java.lang.String layerName)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        getPersistence().removeByG_lN(groupId, layerName);
-    }
-
-    /**
     * Removes all the o g c service layers from the database.
     *
     * @throws SystemException if a system exception occurred
@@ -754,56 +978,6 @@ public class OGCServiceLayerUtil {
     public static void removeAll()
         throws com.liferay.portal.kernel.exception.SystemException {
         getPersistence().removeAll();
-    }
-
-    /**
-    * Returns the number of o g c service layers where uuid = &#63;.
-    *
-    * @param uuid the uuid
-    * @return the number of matching o g c service layers
-    * @throws SystemException if a system exception occurred
-    */
-    public static int countByUuid(java.lang.String uuid)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getPersistence().countByUuid(uuid);
-    }
-
-    /**
-    * Returns the number of o g c service layers where uuid = &#63; and groupId = &#63;.
-    *
-    * @param uuid the uuid
-    * @param groupId the group ID
-    * @return the number of matching o g c service layers
-    * @throws SystemException if a system exception occurred
-    */
-    public static int countByUUID_G(java.lang.String uuid, long groupId)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getPersistence().countByUUID_G(uuid, groupId);
-    }
-
-    /**
-    * Returns the number of o g c service layers where groupId = &#63;.
-    *
-    * @param groupId the group ID
-    * @return the number of matching o g c service layers
-    * @throws SystemException if a system exception occurred
-    */
-    public static int countByGroupId(long groupId)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getPersistence().countByGroupId(groupId);
-    }
-
-    /**
-    * Returns the number of o g c service layers where groupId = &#63; and layerName = &#63;.
-    *
-    * @param groupId the group ID
-    * @param layerName the layer name
-    * @return the number of matching o g c service layers
-    * @throws SystemException if a system exception occurred
-    */
-    public static int countByG_lN(long groupId, java.lang.String layerName)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getPersistence().countByG_lN(groupId, layerName);
     }
 
     /**
@@ -830,7 +1004,7 @@ public class OGCServiceLayerUtil {
     }
 
     /**
-     * @deprecated
+     * @deprecated As of 6.2.0
      */
     public void setPersistence(OGCServiceLayerPersistence persistence) {
     }

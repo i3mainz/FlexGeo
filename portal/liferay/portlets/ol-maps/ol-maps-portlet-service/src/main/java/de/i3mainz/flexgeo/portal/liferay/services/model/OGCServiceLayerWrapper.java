@@ -1,5 +1,7 @@
 package de.i3mainz.flexgeo.portal.liferay.services.model;
 
+import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
 import java.util.Date;
@@ -11,8 +13,8 @@ import java.util.Map;
  * This class is a wrapper for {@link OGCServiceLayer}.
  * </p>
  *
- * @author    Brian Wing Shun Chan
- * @see       OGCServiceLayer
+ * @author Brian Wing Shun Chan
+ * @see OGCServiceLayer
  * @generated
  */
 public class OGCServiceLayerWrapper implements OGCServiceLayer,
@@ -23,14 +25,17 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
         _ogcServiceLayer = ogcServiceLayer;
     }
 
+    @Override
     public Class<?> getModelClass() {
         return OGCServiceLayer.class;
     }
 
+    @Override
     public String getModelClassName() {
         return OGCServiceLayer.class.getName();
     }
 
+    @Override
     public Map<String, Object> getModelAttributes() {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
@@ -49,6 +54,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
         return attributes;
     }
 
+    @Override
     public void setModelAttributes(Map<String, Object> attributes) {
         String uuid = (String) attributes.get("uuid");
 
@@ -123,6 +129,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the primary key of this o g c service layer
     */
+    @Override
     public long getPrimaryKey() {
         return _ogcServiceLayer.getPrimaryKey();
     }
@@ -132,6 +139,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param primaryKey the primary key of this o g c service layer
     */
+    @Override
     public void setPrimaryKey(long primaryKey) {
         _ogcServiceLayer.setPrimaryKey(primaryKey);
     }
@@ -141,6 +149,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the uuid of this o g c service layer
     */
+    @Override
     public java.lang.String getUuid() {
         return _ogcServiceLayer.getUuid();
     }
@@ -150,6 +159,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param uuid the uuid of this o g c service layer
     */
+    @Override
     public void setUuid(java.lang.String uuid) {
         _ogcServiceLayer.setUuid(uuid);
     }
@@ -159,6 +169,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the layer ID of this o g c service layer
     */
+    @Override
     public long getLayerId() {
         return _ogcServiceLayer.getLayerId();
     }
@@ -168,6 +179,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param layerId the layer ID of this o g c service layer
     */
+    @Override
     public void setLayerId(long layerId) {
         _ogcServiceLayer.setLayerId(layerId);
     }
@@ -177,6 +189,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the group ID of this o g c service layer
     */
+    @Override
     public long getGroupId() {
         return _ogcServiceLayer.getGroupId();
     }
@@ -186,6 +199,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param groupId the group ID of this o g c service layer
     */
+    @Override
     public void setGroupId(long groupId) {
         _ogcServiceLayer.setGroupId(groupId);
     }
@@ -195,6 +209,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the company ID of this o g c service layer
     */
+    @Override
     public long getCompanyId() {
         return _ogcServiceLayer.getCompanyId();
     }
@@ -204,6 +219,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param companyId the company ID of this o g c service layer
     */
+    @Override
     public void setCompanyId(long companyId) {
         _ogcServiceLayer.setCompanyId(companyId);
     }
@@ -213,6 +229,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the user ID of this o g c service layer
     */
+    @Override
     public long getUserId() {
         return _ogcServiceLayer.getUserId();
     }
@@ -222,6 +239,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param userId the user ID of this o g c service layer
     */
+    @Override
     public void setUserId(long userId) {
         _ogcServiceLayer.setUserId(userId);
     }
@@ -232,6 +250,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     * @return the user uuid of this o g c service layer
     * @throws SystemException if a system exception occurred
     */
+    @Override
     public java.lang.String getUserUuid()
         throws com.liferay.portal.kernel.exception.SystemException {
         return _ogcServiceLayer.getUserUuid();
@@ -242,6 +261,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param userUuid the user uuid of this o g c service layer
     */
+    @Override
     public void setUserUuid(java.lang.String userUuid) {
         _ogcServiceLayer.setUserUuid(userUuid);
     }
@@ -251,6 +271,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the create date of this o g c service layer
     */
+    @Override
     public java.util.Date getCreateDate() {
         return _ogcServiceLayer.getCreateDate();
     }
@@ -260,6 +281,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param createDate the create date of this o g c service layer
     */
+    @Override
     public void setCreateDate(java.util.Date createDate) {
         _ogcServiceLayer.setCreateDate(createDate);
     }
@@ -269,6 +291,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the modified date of this o g c service layer
     */
+    @Override
     public java.util.Date getModifiedDate() {
         return _ogcServiceLayer.getModifiedDate();
     }
@@ -278,6 +301,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param modifiedDate the modified date of this o g c service layer
     */
+    @Override
     public void setModifiedDate(java.util.Date modifiedDate) {
         _ogcServiceLayer.setModifiedDate(modifiedDate);
     }
@@ -287,6 +311,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the layer name of this o g c service layer
     */
+    @Override
     public java.lang.String getLayerName() {
         return _ogcServiceLayer.getLayerName();
     }
@@ -296,6 +321,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param layerName the layer name of this o g c service layer
     */
+    @Override
     public void setLayerName(java.lang.String layerName) {
         _ogcServiceLayer.setLayerName(layerName);
     }
@@ -305,6 +331,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the layer service ID of this o g c service layer
     */
+    @Override
     public long getLayerServiceId() {
         return _ogcServiceLayer.getLayerServiceId();
     }
@@ -314,6 +341,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param layerServiceId the layer service ID of this o g c service layer
     */
+    @Override
     public void setLayerServiceId(long layerServiceId) {
         _ogcServiceLayer.setLayerServiceId(layerServiceId);
     }
@@ -323,6 +351,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the layer options of this o g c service layer
     */
+    @Override
     public java.lang.String getLayerOptions() {
         return _ogcServiceLayer.getLayerOptions();
     }
@@ -332,6 +361,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param layerOptions the layer options of this o g c service layer
     */
+    @Override
     public void setLayerOptions(java.lang.String layerOptions) {
         _ogcServiceLayer.setLayerOptions(layerOptions);
     }
@@ -341,6 +371,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @return the layer display options of this o g c service layer
     */
+    @Override
     public java.lang.String getLayerDisplayOptions() {
         return _ogcServiceLayer.getLayerDisplayOptions();
     }
@@ -350,42 +381,64 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
     *
     * @param layerDisplayOptions the layer display options of this o g c service layer
     */
+    @Override
     public void setLayerDisplayOptions(java.lang.String layerDisplayOptions) {
         _ogcServiceLayer.setLayerDisplayOptions(layerDisplayOptions);
     }
 
+    @Override
     public boolean isNew() {
         return _ogcServiceLayer.isNew();
     }
 
+    @Override
     public void setNew(boolean n) {
         _ogcServiceLayer.setNew(n);
     }
 
+    @Override
     public boolean isCachedModel() {
         return _ogcServiceLayer.isCachedModel();
     }
 
+    @Override
     public void setCachedModel(boolean cachedModel) {
         _ogcServiceLayer.setCachedModel(cachedModel);
     }
 
+    @Override
     public boolean isEscapedModel() {
         return _ogcServiceLayer.isEscapedModel();
     }
 
+    @Override
     public java.io.Serializable getPrimaryKeyObj() {
         return _ogcServiceLayer.getPrimaryKeyObj();
     }
 
+    @Override
     public void setPrimaryKeyObj(java.io.Serializable primaryKeyObj) {
         _ogcServiceLayer.setPrimaryKeyObj(primaryKeyObj);
     }
 
+    @Override
     public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
         return _ogcServiceLayer.getExpandoBridge();
     }
 
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.model.BaseModel<?> baseModel) {
+        _ogcServiceLayer.setExpandoBridgeAttributes(baseModel);
+    }
+
+    @Override
+    public void setExpandoBridgeAttributes(
+        com.liferay.portlet.expando.model.ExpandoBridge expandoBridge) {
+        _ogcServiceLayer.setExpandoBridgeAttributes(expandoBridge);
+    }
+
+    @Override
     public void setExpandoBridgeAttributes(
         com.liferay.portal.service.ServiceContext serviceContext) {
         _ogcServiceLayer.setExpandoBridgeAttributes(serviceContext);
@@ -396,6 +449,7 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
         return new OGCServiceLayerWrapper((OGCServiceLayer) _ogcServiceLayer.clone());
     }
 
+    @Override
     public int compareTo(OGCServiceLayer ogcServiceLayer) {
         return _ogcServiceLayer.compareTo(ogcServiceLayer);
     }
@@ -405,12 +459,19 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
         return _ogcServiceLayer.hashCode();
     }
 
+    @Override
     public com.liferay.portal.model.CacheModel<OGCServiceLayer> toCacheModel() {
         return _ogcServiceLayer.toCacheModel();
     }
 
+    @Override
     public OGCServiceLayer toEscapedModel() {
         return new OGCServiceLayerWrapper(_ogcServiceLayer.toEscapedModel());
+    }
+
+    @Override
+    public OGCServiceLayer toUnescapedModel() {
+        return new OGCServiceLayerWrapper(_ogcServiceLayer.toUnescapedModel());
     }
 
     @Override
@@ -418,26 +479,55 @@ public class OGCServiceLayerWrapper implements OGCServiceLayer,
         return _ogcServiceLayer.toString();
     }
 
+    @Override
     public java.lang.String toXmlString() {
         return _ogcServiceLayer.toXmlString();
     }
 
+    @Override
     public void persist()
         throws com.liferay.portal.kernel.exception.SystemException {
         _ogcServiceLayer.persist();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof OGCServiceLayerWrapper)) {
+            return false;
+        }
+
+        OGCServiceLayerWrapper ogcServiceLayerWrapper = (OGCServiceLayerWrapper) obj;
+
+        if (Validator.equals(_ogcServiceLayer,
+                    ogcServiceLayerWrapper._ogcServiceLayer)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public StagedModelType getStagedModelType() {
+        return _ogcServiceLayer.getStagedModelType();
+    }
+
     /**
-     * @deprecated Renamed to {@link #getWrappedModel}
+     * @deprecated As of 6.1.0, replaced by {@link #getWrappedModel}
      */
     public OGCServiceLayer getWrappedOGCServiceLayer() {
         return _ogcServiceLayer;
     }
 
+    @Override
     public OGCServiceLayer getWrappedModel() {
         return _ogcServiceLayer;
     }
 
+    @Override
     public void resetOriginalValues() {
         _ogcServiceLayer.resetOriginalValues();
     }

@@ -5,11 +5,12 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
 import com.liferay.portal.service.InvokableService;
 
 /**
- * The utility for the o g c service remote service. This utility wraps {@link de.i3mainz.flexgeo.portal.liferay.services.service.impl.OGCServiceServiceImpl} and is the primary access point for service operations in application layer code running on a remote server.
- *
- * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
- * </p>
+ * Provides the remote service utility for OGCService. This utility wraps
+ * {@link de.i3mainz.flexgeo.portal.liferay.services.service.impl.OGCServiceServiceImpl} and is the
+ * primary access point for service operations in application layer code running
+ * on a remote server. Methods of this service are expected to have security
+ * checks based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see OGCServiceService
@@ -73,7 +74,7 @@ public class OGCServiceServiceUtil {
     }
 
     /**
-     * @deprecated
+     * @deprecated As of 6.2.0
      */
     public void setService(OGCServiceService service) {
     }

@@ -3,6 +3,7 @@ package de.i3mainz.flexgeo.portal.liferay.services.model.impl;
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSON;
+import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -66,6 +67,8 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         };
     public static final String TABLE_SQL_CREATE = "create table olmaps_OGCServiceLayer (uuid_ VARCHAR(75) null,layerId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,layerName VARCHAR(75) null,layerServiceId LONG,layerOptions VARCHAR(75) null,layerDisplayOptions VARCHAR(75) null)";
     public static final String TABLE_SQL_DROP = "drop table olmaps_OGCServiceLayer";
+    public static final String ORDER_BY_JPQL = " ORDER BY ogcServiceLayer.layerId ASC";
+    public static final String ORDER_BY_SQL = " ORDER BY olmaps_OGCServiceLayer.layerId ASC";
     public static final String DATA_SOURCE = "liferayDataSource";
     public static final String SESSION_FACTORY = "liferaySessionFactory";
     public static final String TX_MANAGER = "liferayTransactionManager";
@@ -78,13 +81,15 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
                 "value.object.column.bitmask.enabled.de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer"),
             true);
-    public static long GROUPID_COLUMN_BITMASK = 1L;
-    public static long LAYERNAME_COLUMN_BITMASK = 2L;
-    public static long UUID_COLUMN_BITMASK = 4L;
+    public static long COMPANYID_COLUMN_BITMASK = 1L;
+    public static long GROUPID_COLUMN_BITMASK = 2L;
+    public static long LAYERNAME_COLUMN_BITMASK = 4L;
+    public static long UUID_COLUMN_BITMASK = 8L;
+    public static long LAYERID_COLUMN_BITMASK = 16L;
     public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
                 "lock.expiration.time.de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer"));
     private static ClassLoader _classLoader = OGCServiceLayer.class.getClassLoader();
-    private static Class<?>[] _escapedModelProxyInterfaces = new Class[] {
+    private static Class<?>[] _escapedModelInterfaces = new Class[] {
             OGCServiceLayer.class
         };
     private String _uuid;
@@ -94,6 +99,8 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     private long _originalGroupId;
     private boolean _setOriginalGroupId;
     private long _companyId;
+    private long _originalCompanyId;
+    private boolean _setOriginalCompanyId;
     private long _userId;
     private String _userUuid;
     private Date _createDate;
@@ -104,7 +111,7 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     private String _layerOptions;
     private String _layerDisplayOptions;
     private long _columnBitmask;
-    private OGCServiceLayer _escapedModelProxy;
+    private OGCServiceLayer _escapedModel;
 
     public OGCServiceLayerModelImpl() {
     }
@@ -158,26 +165,32 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         return models;
     }
 
+    @Override
     public long getPrimaryKey() {
         return _layerId;
     }
 
+    @Override
     public void setPrimaryKey(long primaryKey) {
         setLayerId(primaryKey);
     }
 
+    @Override
     public Serializable getPrimaryKeyObj() {
-        return new Long(_layerId);
+        return _layerId;
     }
 
+    @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
         setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
 
+    @Override
     public Class<?> getModelClass() {
         return OGCServiceLayer.class;
     }
 
+    @Override
     public String getModelClassName() {
         return OGCServiceLayer.class.getName();
     }
@@ -272,6 +285,7 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     }
 
     @JSON
+    @Override
     public String getUuid() {
         if (_uuid == null) {
             return StringPool.BLANK;
@@ -280,6 +294,7 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         }
     }
 
+    @Override
     public void setUuid(String uuid) {
         if (_originalUuid == null) {
             _originalUuid = _uuid;
@@ -293,19 +308,23 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     }
 
     @JSON
+    @Override
     public long getLayerId() {
         return _layerId;
     }
 
+    @Override
     public void setLayerId(long layerId) {
         _layerId = layerId;
     }
 
     @JSON
+    @Override
     public long getGroupId() {
         return _groupId;
     }
 
+    @Override
     public void setGroupId(long groupId) {
         _columnBitmask |= GROUPID_COLUMN_BITMASK;
 
@@ -323,50 +342,73 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     }
 
     @JSON
+    @Override
     public long getCompanyId() {
         return _companyId;
     }
 
+    @Override
     public void setCompanyId(long companyId) {
+        _columnBitmask |= COMPANYID_COLUMN_BITMASK;
+
+        if (!_setOriginalCompanyId) {
+            _setOriginalCompanyId = true;
+
+            _originalCompanyId = _companyId;
+        }
+
         _companyId = companyId;
     }
 
+    public long getOriginalCompanyId() {
+        return _originalCompanyId;
+    }
+
     @JSON
+    @Override
     public long getUserId() {
         return _userId;
     }
 
+    @Override
     public void setUserId(long userId) {
         _userId = userId;
     }
 
+    @Override
     public String getUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
     }
 
+    @Override
     public void setUserUuid(String userUuid) {
         _userUuid = userUuid;
     }
 
     @JSON
+    @Override
     public Date getCreateDate() {
         return _createDate;
     }
 
+    @Override
     public void setCreateDate(Date createDate) {
         _createDate = createDate;
     }
 
     @JSON
+    @Override
     public Date getModifiedDate() {
         return _modifiedDate;
     }
 
+    @Override
     public void setModifiedDate(Date modifiedDate) {
         _modifiedDate = modifiedDate;
     }
 
     @JSON
+    @Override
     public String getLayerName() {
         if (_layerName == null) {
             return StringPool.BLANK;
@@ -375,6 +417,7 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         }
     }
 
+    @Override
     public void setLayerName(String layerName) {
         _columnBitmask |= LAYERNAME_COLUMN_BITMASK;
 
@@ -390,15 +433,18 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
     }
 
     @JSON
+    @Override
     public long getLayerServiceId() {
         return _layerServiceId;
     }
 
+    @Override
     public void setLayerServiceId(long layerServiceId) {
         _layerServiceId = layerServiceId;
     }
 
     @JSON
+    @Override
     public String getLayerOptions() {
         if (_layerOptions == null) {
             return StringPool.BLANK;
@@ -407,11 +453,13 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         }
     }
 
+    @Override
     public void setLayerOptions(String layerOptions) {
         _layerOptions = layerOptions;
     }
 
     @JSON
+    @Override
     public String getLayerDisplayOptions() {
         if (_layerDisplayOptions == null) {
             return StringPool.BLANK;
@@ -420,8 +468,15 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         }
     }
 
+    @Override
     public void setLayerDisplayOptions(String layerDisplayOptions) {
         _layerDisplayOptions = layerDisplayOptions;
+    }
+
+    @Override
+    public StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                OGCServiceLayer.class.getName()));
     }
 
     public long getColumnBitmask() {
@@ -443,13 +498,12 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
 
     @Override
     public OGCServiceLayer toEscapedModel() {
-        if (_escapedModelProxy == null) {
-            _escapedModelProxy = (OGCServiceLayer) ProxyUtil.newProxyInstance(_classLoader,
-                    _escapedModelProxyInterfaces,
-                    new AutoEscapeBeanHandler(this));
+        if (_escapedModel == null) {
+            _escapedModel = (OGCServiceLayer) ProxyUtil.newProxyInstance(_classLoader,
+                    _escapedModelInterfaces, new AutoEscapeBeanHandler(this));
         }
 
-        return _escapedModelProxy;
+        return _escapedModel;
     }
 
     @Override
@@ -473,6 +527,7 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         return ogcServiceLayerImpl;
     }
 
+    @Override
     public int compareTo(OGCServiceLayer ogcServiceLayer) {
         long primaryKey = ogcServiceLayer.getPrimaryKey();
 
@@ -487,17 +542,15 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof OGCServiceLayer)) {
             return false;
         }
 
-        OGCServiceLayer ogcServiceLayer = null;
-
-        try {
-            ogcServiceLayer = (OGCServiceLayer) obj;
-        } catch (ClassCastException cce) {
-            return false;
-        }
+        OGCServiceLayer ogcServiceLayer = (OGCServiceLayer) obj;
 
         long primaryKey = ogcServiceLayer.getPrimaryKey();
 
@@ -522,6 +575,10 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         ogcServiceLayerModelImpl._originalGroupId = ogcServiceLayerModelImpl._groupId;
 
         ogcServiceLayerModelImpl._setOriginalGroupId = false;
+
+        ogcServiceLayerModelImpl._originalCompanyId = ogcServiceLayerModelImpl._companyId;
+
+        ogcServiceLayerModelImpl._setOriginalCompanyId = false;
 
         ogcServiceLayerModelImpl._originalLayerName = ogcServiceLayerModelImpl._layerName;
 
@@ -625,6 +682,7 @@ public class OGCServiceLayerModelImpl extends BaseModelImpl<OGCServiceLayer>
         return sb.toString();
     }
 
+    @Override
     public String toXmlString() {
         StringBundler sb = new StringBundler(37);
 

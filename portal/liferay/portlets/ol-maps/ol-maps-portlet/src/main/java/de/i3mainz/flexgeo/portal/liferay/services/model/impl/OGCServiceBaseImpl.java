@@ -24,6 +24,7 @@ public abstract class OGCServiceBaseImpl extends OGCServiceModelImpl
      *
      * Never modify or reference this class directly. All methods that expect a o g c service model instance should use the {@link OGCService} interface instead.
      */
+    @Override
     public void persist() throws SystemException {
         if (this.isNew()) {
             OGCServiceLocalServiceUtil.addOGCService(this);

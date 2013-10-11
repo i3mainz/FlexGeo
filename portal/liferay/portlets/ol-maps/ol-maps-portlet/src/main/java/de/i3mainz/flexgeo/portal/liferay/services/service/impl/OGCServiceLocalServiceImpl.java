@@ -62,6 +62,10 @@ public class OGCServiceLocalServiceImpl extends OGCServiceLocalServiceBaseImpl {
 		entry.setCreateDate(now);
 		entry.setModifiedDate(serviceContext.getModifiedDate(now));
 
+		entry.setServiceName(serviceName);
+		entry.setServiceType(serviceType);
+		entry.setServiceURL(serviceURL.toExternalForm());
+
 		ogcServicePersistence.update(entry, false);
 
 		// Resources

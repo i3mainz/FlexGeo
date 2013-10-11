@@ -5,11 +5,12 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
 import com.liferay.portal.service.InvokableLocalService;
 
 /**
- * The utility for the o g c service local service. This utility wraps {@link de.i3mainz.flexgeo.portal.liferay.services.service.impl.OGCServiceLocalServiceImpl} and is the primary access point for service operations in application layer code running on the local server.
- *
- * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
- * </p>
+ * Provides the local service utility for OGCService. This utility wraps
+ * {@link de.i3mainz.flexgeo.portal.liferay.services.service.impl.OGCServiceLocalServiceImpl} and is the
+ * primary access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see OGCServiceLocalService
@@ -100,7 +101,7 @@ public class OGCServiceLocalServiceUtil {
     * Performs a dynamic query on the database and returns a range of the matching rows.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param dynamicQuery the dynamic query
@@ -120,7 +121,7 @@ public class OGCServiceLocalServiceUtil {
     * Performs a dynamic query on the database and returns an ordered range of the matching rows.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param dynamicQuery the dynamic query
@@ -153,10 +154,53 @@ public class OGCServiceLocalServiceUtil {
         return getService().dynamicQueryCount(dynamicQuery);
     }
 
+    /**
+    * Returns the number of rows that match the dynamic query.
+    *
+    * @param dynamicQuery the dynamic query
+    * @param projection the projection to apply to the query
+    * @return the number of rows that match the dynamic query
+    * @throws SystemException if a system exception occurred
+    */
+    public static long dynamicQueryCount(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+        com.liferay.portal.kernel.dao.orm.Projection projection)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().dynamicQueryCount(dynamicQuery, projection);
+    }
+
     public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService fetchOGCService(
         long serviceId)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getService().fetchOGCService(serviceId);
+    }
+
+    /**
+    * Returns the o g c service with the matching UUID and company.
+    *
+    * @param uuid the o g c service's UUID
+    * @param companyId the primary key of the company
+    * @return the matching o g c service, or <code>null</code> if a matching o g c service could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService fetchOGCServiceByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().fetchOGCServiceByUuidAndCompanyId(uuid, companyId);
+    }
+
+    /**
+    * Returns the o g c service matching the UUID and group.
+    *
+    * @param uuid the o g c service's UUID
+    * @param groupId the primary key of the group
+    * @return the matching o g c service, or <code>null</code> if a matching o g c service could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService fetchOGCServiceByUuidAndGroupId(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().fetchOGCServiceByUuidAndGroupId(uuid, groupId);
     }
 
     public static com.liferay.portal.model.PersistedModel getPersistedModel(
@@ -167,12 +211,28 @@ public class OGCServiceLocalServiceUtil {
     }
 
     /**
-    * Returns the o g c service with the UUID in the group.
+    * Returns the o g c service with the matching UUID and company.
     *
-    * @param uuid the UUID of o g c service
-    * @param groupId the group id of the o g c service
-    * @return the o g c service
-    * @throws PortalException if a o g c service with the UUID in the group could not be found
+    * @param uuid the o g c service's UUID
+    * @param companyId the primary key of the company
+    * @return the matching o g c service
+    * @throws PortalException if a matching o g c service could not be found
+    * @throws SystemException if a system exception occurred
+    */
+    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService getOGCServiceByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getOGCServiceByUuidAndCompanyId(uuid, companyId);
+    }
+
+    /**
+    * Returns the o g c service matching the UUID and group.
+    *
+    * @param uuid the o g c service's UUID
+    * @param groupId the primary key of the group
+    * @return the matching o g c service
+    * @throws PortalException if a matching o g c service could not be found
     * @throws SystemException if a system exception occurred
     */
     public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService getOGCServiceByUuidAndGroupId(
@@ -186,7 +246,7 @@ public class OGCServiceLocalServiceUtil {
     * Returns a range of all the o g c services.
     *
     * <p>
-    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+    * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link de.i3mainz.flexgeo.portal.liferay.services.model.impl.OGCServiceModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
     * </p>
     *
     * @param start the lower bound of the range of o g c services
@@ -222,21 +282,6 @@ public class OGCServiceLocalServiceUtil {
         de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService)
         throws com.liferay.portal.kernel.exception.SystemException {
         return getService().updateOGCService(ogcService);
-    }
-
-    /**
-    * Updates the o g c service in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
-    *
-    * @param ogcService the o g c service
-    * @param merge whether to merge the o g c service with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-    * @return the o g c service that was updated
-    * @throws SystemException if a system exception occurred
-    */
-    public static de.i3mainz.flexgeo.portal.liferay.services.model.OGCService updateOGCService(
-        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
-        boolean merge)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        return getService().updateOGCService(ogcService, merge);
     }
 
     /**
@@ -333,7 +378,7 @@ public class OGCServiceLocalServiceUtil {
     }
 
     /**
-     * @deprecated
+     * @deprecated As of 6.2.0
      */
     public void setService(OGCServiceLocalService service) {
     }

@@ -2,7 +2,10 @@ package de.i3mainz.flexgeo.portal.liferay.services.service;
 
 import com.liferay.portal.service.InvokableLocalService;
 
-
+/**
+ * @author Brian Wing Shun Chan
+ * @generated
+ */
 public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
     private InvokableLocalService _invokableLocalService;
     private String _methodName0;
@@ -41,16 +44,22 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
     private String[] _methodParameterTypes16;
     private String _methodName17;
     private String[] _methodParameterTypes17;
+    private String _methodName18;
+    private String[] _methodParameterTypes18;
     private String _methodName19;
     private String[] _methodParameterTypes19;
     private String _methodName20;
     private String[] _methodParameterTypes20;
-    private String _methodName21;
-    private String[] _methodParameterTypes21;
     private String _methodName22;
     private String[] _methodParameterTypes22;
     private String _methodName23;
     private String[] _methodParameterTypes23;
+    private String _methodName24;
+    private String[] _methodParameterTypes24;
+    private String _methodName25;
+    private String[] _methodParameterTypes25;
+    private String _methodName26;
+    private String[] _methodParameterTypes26;
 
     public OGCServiceLocalServiceClp(
         InvokableLocalService invokableLocalService) {
@@ -105,80 +114,93 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
                 "com.liferay.portal.kernel.dao.orm.DynamicQuery"
             };
 
-        _methodName9 = "fetchOGCService";
+        _methodName9 = "dynamicQueryCount";
 
-        _methodParameterTypes9 = new String[] { "long" };
+        _methodParameterTypes9 = new String[] {
+                "com.liferay.portal.kernel.dao.orm.DynamicQuery",
+                "com.liferay.portal.kernel.dao.orm.Projection"
+            };
 
-        _methodName10 = "getPersistedModel";
+        _methodName10 = "fetchOGCService";
 
-        _methodParameterTypes10 = new String[] { "java.io.Serializable" };
+        _methodParameterTypes10 = new String[] { "long" };
 
-        _methodName11 = "getOGCServiceByUuidAndGroupId";
+        _methodName11 = "fetchOGCServiceByUuidAndCompanyId";
 
         _methodParameterTypes11 = new String[] { "java.lang.String", "long" };
 
-        _methodName12 = "getOGCServices";
+        _methodName12 = "fetchOGCServiceByUuidAndGroupId";
 
-        _methodParameterTypes12 = new String[] { "int", "int" };
+        _methodParameterTypes12 = new String[] { "java.lang.String", "long" };
 
-        _methodName13 = "getOGCServicesCount";
+        _methodName13 = "getPersistedModel";
 
-        _methodParameterTypes13 = new String[] {  };
+        _methodParameterTypes13 = new String[] { "java.io.Serializable" };
 
-        _methodName14 = "updateOGCService";
+        _methodName14 = "getOGCServiceByUuidAndCompanyId";
 
-        _methodParameterTypes14 = new String[] {
+        _methodParameterTypes14 = new String[] { "java.lang.String", "long" };
+
+        _methodName15 = "getOGCServiceByUuidAndGroupId";
+
+        _methodParameterTypes15 = new String[] { "java.lang.String", "long" };
+
+        _methodName16 = "getOGCServices";
+
+        _methodParameterTypes16 = new String[] { "int", "int" };
+
+        _methodName17 = "getOGCServicesCount";
+
+        _methodParameterTypes17 = new String[] {  };
+
+        _methodName18 = "updateOGCService";
+
+        _methodParameterTypes18 = new String[] {
                 "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService"
             };
 
-        _methodName15 = "updateOGCService";
+        _methodName19 = "getBeanIdentifier";
 
-        _methodParameterTypes15 = new String[] {
-                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
-                "boolean"
-            };
+        _methodParameterTypes19 = new String[] {  };
 
-        _methodName16 = "getBeanIdentifier";
+        _methodName20 = "setBeanIdentifier";
 
-        _methodParameterTypes16 = new String[] {  };
+        _methodParameterTypes20 = new String[] { "java.lang.String" };
 
-        _methodName17 = "setBeanIdentifier";
+        _methodName22 = "addOGCService";
 
-        _methodParameterTypes17 = new String[] { "java.lang.String" };
-
-        _methodName19 = "addOGCService";
-
-        _methodParameterTypes19 = new String[] {
+        _methodParameterTypes22 = new String[] {
                 "long", "java.lang.String", "java.lang.String", "java.net.URL",
                 "java.lang.String", "java.lang.String",
                 "com.liferay.portal.service.ServiceContext"
             };
 
-        _methodName20 = "addEntryResources";
+        _methodName23 = "addEntryResources";
 
-        _methodParameterTypes20 = new String[] {
+        _methodParameterTypes23 = new String[] {
                 "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
                 "boolean", "boolean"
             };
 
-        _methodName21 = "addEntryResources";
+        _methodName24 = "addEntryResources";
 
-        _methodParameterTypes21 = new String[] {
+        _methodParameterTypes24 = new String[] {
                 "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
                 "java.lang.String[][]", "java.lang.String[][]"
             };
 
-        _methodName22 = "addEntryResources";
+        _methodName25 = "addEntryResources";
 
-        _methodParameterTypes22 = new String[] { "long", "boolean", "boolean" };
+        _methodParameterTypes25 = new String[] { "long", "boolean", "boolean" };
 
-        _methodName23 = "addEntryResources";
+        _methodName26 = "addEntryResources";
 
-        _methodParameterTypes23 = new String[] {
+        _methodParameterTypes26 = new String[] {
                 "long", "java.lang.String[][]", "java.lang.String[][]"
             };
     }
 
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService addOGCService(
         de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService)
         throws com.liferay.portal.kernel.exception.SystemException {
@@ -206,6 +228,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService createOGCService(
         long serviceId) {
         Object returnObj = null;
@@ -227,6 +250,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService deleteOGCService(
         long serviceId)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -258,6 +282,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService deleteOGCService(
         de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService)
         throws com.liferay.portal.kernel.exception.SystemException {
@@ -285,6 +310,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
         Object returnObj = null;
 
@@ -305,6 +331,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (com.liferay.portal.kernel.dao.orm.DynamicQuery) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
@@ -333,6 +360,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (java.util.List) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
@@ -367,6 +395,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (java.util.List) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public java.util.List dynamicQuery(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
@@ -405,6 +434,7 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (java.util.List) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public long dynamicQueryCount(
         com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
         throws com.liferay.portal.kernel.exception.SystemException {
@@ -432,14 +462,48 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return ((Long) returnObj).longValue();
     }
 
+    @Override
+    public long dynamicQueryCount(
+        com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+        com.liferay.portal.kernel.dao.orm.Projection projection)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName9,
+                    _methodParameterTypes9,
+                    new Object[] {
+                        ClpSerializer.translateInput(dynamicQuery),
+                        
+                    ClpSerializer.translateInput(projection)
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return ((Long) returnObj).longValue();
+    }
+
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService fetchOGCService(
         long serviceId)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName9,
-                    _methodParameterTypes9, new Object[] { serviceId });
+            returnObj = _invokableLocalService.invokeMethod(_methodName10,
+                    _methodParameterTypes10, new Object[] { serviceId });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -458,6 +522,63 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
+    public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService fetchOGCServiceByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName11,
+                    _methodParameterTypes11,
+                    new Object[] { ClpSerializer.translateInput(uuid), companyId });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
+    public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService fetchOGCServiceByUuidAndGroupId(
+        java.lang.String uuid, long groupId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName12,
+                    _methodParameterTypes12,
+                    new Object[] { ClpSerializer.translateInput(uuid), groupId });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
     public com.liferay.portal.model.PersistedModel getPersistedModel(
         java.io.Serializable primaryKeyObj)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -465,8 +586,8 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName10,
-                    _methodParameterTypes10,
+            returnObj = _invokableLocalService.invokeMethod(_methodName13,
+                    _methodParameterTypes13,
                     new Object[] { ClpSerializer.translateInput(primaryKeyObj) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -490,6 +611,40 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (com.liferay.portal.model.PersistedModel) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
+    public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService getOGCServiceByUuidAndCompanyId(
+        java.lang.String uuid, long companyId)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableLocalService.invokeMethod(_methodName14,
+                    _methodParameterTypes14,
+                    new Object[] { ClpSerializer.translateInput(uuid), companyId });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+                throw (com.liferay.portal.kernel.exception.PortalException) t;
+            }
+
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService getOGCServiceByUuidAndGroupId(
         java.lang.String uuid, long groupId)
         throws com.liferay.portal.kernel.exception.PortalException,
@@ -497,8 +652,8 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName11,
-                    _methodParameterTypes11,
+            returnObj = _invokableLocalService.invokeMethod(_methodName15,
+                    _methodParameterTypes15,
                     new Object[] { ClpSerializer.translateInput(uuid), groupId });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -522,14 +677,15 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCService> getOGCServices(
         int start, int end)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName12,
-                    _methodParameterTypes12, new Object[] { start, end });
+            returnObj = _invokableLocalService.invokeMethod(_methodName16,
+                    _methodParameterTypes16, new Object[] { start, end });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -548,13 +704,14 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (java.util.List<de.i3mainz.flexgeo.portal.liferay.services.model.OGCService>) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public int getOGCServicesCount()
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName13,
-                    _methodParameterTypes13, new Object[] {  });
+            returnObj = _invokableLocalService.invokeMethod(_methodName17,
+                    _methodParameterTypes17, new Object[] {  });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -573,14 +730,15 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return ((Integer) returnObj).intValue();
     }
 
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService updateOGCService(
         de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService)
         throws com.liferay.portal.kernel.exception.SystemException {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName14,
-                    _methodParameterTypes14,
+            returnObj = _invokableLocalService.invokeMethod(_methodName18,
+                    _methodParameterTypes18,
                     new Object[] { ClpSerializer.translateInput(ogcService) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -600,40 +758,13 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
-    public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService updateOGCService(
-        de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
-        boolean merge)
-        throws com.liferay.portal.kernel.exception.SystemException {
-        Object returnObj = null;
-
-        try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName15,
-                    _methodParameterTypes15,
-                    new Object[] { ClpSerializer.translateInput(ogcService), merge });
-        } catch (Throwable t) {
-            t = ClpSerializer.translateThrowable(t);
-
-            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-                throw (com.liferay.portal.kernel.exception.SystemException) t;
-            }
-
-            if (t instanceof RuntimeException) {
-                throw (RuntimeException) t;
-            } else {
-                throw new RuntimeException(t.getClass().getName() +
-                    " is not a valid exception");
-            }
-        }
-
-        return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
-    }
-
+    @Override
     public java.lang.String getBeanIdentifier() {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName16,
-                    _methodParameterTypes16, new Object[] {  });
+            returnObj = _invokableLocalService.invokeMethod(_methodName19,
+                    _methodParameterTypes19, new Object[] {  });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
 
@@ -648,10 +779,11 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (java.lang.String) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public void setBeanIdentifier(java.lang.String beanIdentifier) {
         try {
-            _invokableLocalService.invokeMethod(_methodName17,
-                _methodParameterTypes17,
+            _invokableLocalService.invokeMethod(_methodName20,
+                _methodParameterTypes20,
                 new Object[] { ClpSerializer.translateInput(beanIdentifier) });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -665,12 +797,14 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         }
     }
 
+    @Override
     public java.lang.Object invokeMethod(java.lang.String name,
         java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public de.i3mainz.flexgeo.portal.liferay.services.model.OGCService addOGCService(
         long userId, java.lang.String serviceName,
         java.lang.String serviceType, java.net.URL serviceURL,
@@ -681,8 +815,8 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         Object returnObj = null;
 
         try {
-            returnObj = _invokableLocalService.invokeMethod(_methodName19,
-                    _methodParameterTypes19,
+            returnObj = _invokableLocalService.invokeMethod(_methodName22,
+                    _methodParameterTypes22,
                     new Object[] {
                         userId,
                         
@@ -720,14 +854,15 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         return (de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) ClpSerializer.translateOutput(returnObj);
     }
 
+    @Override
     public void addEntryResources(
         de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
         boolean addGroupPermissions, boolean addGuestPermissions)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         try {
-            _invokableLocalService.invokeMethod(_methodName20,
-                _methodParameterTypes20,
+            _invokableLocalService.invokeMethod(_methodName23,
+                _methodParameterTypes23,
                 new Object[] {
                     ClpSerializer.translateInput(ogcService),
                     
@@ -755,14 +890,15 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         }
     }
 
+    @Override
     public void addEntryResources(
         de.i3mainz.flexgeo.portal.liferay.services.model.OGCService ogcService,
         java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         try {
-            _invokableLocalService.invokeMethod(_methodName21,
-                _methodParameterTypes21,
+            _invokableLocalService.invokeMethod(_methodName24,
+                _methodParameterTypes24,
                 new Object[] {
                     ClpSerializer.translateInput(ogcService),
                     
@@ -790,13 +926,14 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         }
     }
 
+    @Override
     public void addEntryResources(long entryId, boolean addGroupPermissions,
         boolean addGuestPermissions)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         try {
-            _invokableLocalService.invokeMethod(_methodName22,
-                _methodParameterTypes22,
+            _invokableLocalService.invokeMethod(_methodName25,
+                _methodParameterTypes25,
                 new Object[] { entryId, addGroupPermissions, addGuestPermissions });
         } catch (Throwable t) {
             t = ClpSerializer.translateThrowable(t);
@@ -818,13 +955,14 @@ public class OGCServiceLocalServiceClp implements OGCServiceLocalService {
         }
     }
 
+    @Override
     public void addEntryResources(long entryId,
         java.lang.String[] groupPermissions, java.lang.String[] guestPermissions)
         throws com.liferay.portal.kernel.exception.PortalException,
             com.liferay.portal.kernel.exception.SystemException {
         try {
-            _invokableLocalService.invokeMethod(_methodName23,
-                _methodParameterTypes23,
+            _invokableLocalService.invokeMethod(_methodName26,
+                _methodParameterTypes26,
                 new Object[] {
                     entryId,
                     

@@ -2,16 +2,19 @@ package de.i3mainz.flexgeo.portal.liferay.services.model;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.util.PortalUtil;
 
+import de.i3mainz.flexgeo.portal.liferay.services.service.ClpSerializer;
 import de.i3mainz.flexgeo.portal.liferay.services.service.OGCServiceLocalServiceUtil;
 
 import java.io.Serializable;
 
-import java.lang.reflect.Proxy;
+import java.lang.reflect.Method;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -36,26 +39,32 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
     public OGCServiceClp() {
     }
 
+    @Override
     public Class<?> getModelClass() {
         return OGCService.class;
     }
 
+    @Override
     public String getModelClassName() {
         return OGCService.class.getName();
     }
 
+    @Override
     public long getPrimaryKey() {
         return _serviceId;
     }
 
+    @Override
     public void setPrimaryKey(long primaryKey) {
         setServiceId(primaryKey);
     }
 
+    @Override
     public Serializable getPrimaryKeyObj() {
-        return new Long(_serviceId);
+        return _serviceId;
     }
 
+    @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
         setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
@@ -141,92 +150,240 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
         }
     }
 
+    @Override
     public String getUuid() {
         return _uuid;
     }
 
+    @Override
     public void setUuid(String uuid) {
         _uuid = uuid;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUuid", String.class);
+
+                method.invoke(_ogcServiceRemoteModel, uuid);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getServiceId() {
         return _serviceId;
     }
 
+    @Override
     public void setServiceId(long serviceId) {
         _serviceId = serviceId;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setServiceId", long.class);
+
+                method.invoke(_ogcServiceRemoteModel, serviceId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getGroupId() {
         return _groupId;
     }
 
+    @Override
     public void setGroupId(long groupId) {
         _groupId = groupId;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setGroupId", long.class);
+
+                method.invoke(_ogcServiceRemoteModel, groupId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getCompanyId() {
         return _companyId;
     }
 
+    @Override
     public void setCompanyId(long companyId) {
         _companyId = companyId;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCompanyId", long.class);
+
+                method.invoke(_ogcServiceRemoteModel, companyId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getUserId() {
         return _userId;
     }
 
+    @Override
     public void setUserId(long userId) {
         _userId = userId;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUserId", long.class);
+
+                method.invoke(_ogcServiceRemoteModel, userId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
     }
 
+    @Override
     public void setUserUuid(String userUuid) {
         _userUuid = userUuid;
     }
 
+    @Override
     public Date getCreateDate() {
         return _createDate;
     }
 
+    @Override
     public void setCreateDate(Date createDate) {
         _createDate = createDate;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCreateDate", Date.class);
+
+                method.invoke(_ogcServiceRemoteModel, createDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public Date getModifiedDate() {
         return _modifiedDate;
     }
 
+    @Override
     public void setModifiedDate(Date modifiedDate) {
         _modifiedDate = modifiedDate;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setModifiedDate", Date.class);
+
+                method.invoke(_ogcServiceRemoteModel, modifiedDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getServiceName() {
         return _serviceName;
     }
 
+    @Override
     public void setServiceName(String serviceName) {
         _serviceName = serviceName;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setServiceName", String.class);
+
+                method.invoke(_ogcServiceRemoteModel, serviceName);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getServiceURL() {
         return _serviceURL;
     }
 
+    @Override
     public void setServiceURL(String serviceURL) {
         _serviceURL = serviceURL;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setServiceURL", String.class);
+
+                method.invoke(_ogcServiceRemoteModel, serviceURL);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getServiceType() {
         return _serviceType;
     }
 
+    @Override
     public void setServiceType(String serviceType) {
         _serviceType = serviceType;
+
+        if (_ogcServiceRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setServiceType", String.class);
+
+                method.invoke(_ogcServiceRemoteModel, serviceType);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
+    }
+
+    @Override
+    public StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                OGCService.class.getName()));
     }
 
     public BaseModel<?> getOGCServiceRemoteModel() {
@@ -237,6 +394,47 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
         _ogcServiceRemoteModel = ogcServiceRemoteModel;
     }
 
+    public Object invokeOnRemoteModel(String methodName,
+        Class<?>[] parameterTypes, Object[] parameterValues)
+        throws Exception {
+        Object[] remoteParameterValues = new Object[parameterValues.length];
+
+        for (int i = 0; i < parameterValues.length; i++) {
+            if (parameterValues[i] != null) {
+                remoteParameterValues[i] = ClpSerializer.translateInput(parameterValues[i]);
+            }
+        }
+
+        Class<?> remoteModelClass = _ogcServiceRemoteModel.getClass();
+
+        ClassLoader remoteModelClassLoader = remoteModelClass.getClassLoader();
+
+        Class<?>[] remoteParameterTypes = new Class[parameterTypes.length];
+
+        for (int i = 0; i < parameterTypes.length; i++) {
+            if (parameterTypes[i].isPrimitive()) {
+                remoteParameterTypes[i] = parameterTypes[i];
+            } else {
+                String parameterTypeName = parameterTypes[i].getName();
+
+                remoteParameterTypes[i] = remoteModelClassLoader.loadClass(parameterTypeName);
+            }
+        }
+
+        Method method = remoteModelClass.getMethod(methodName,
+                remoteParameterTypes);
+
+        Object returnValue = method.invoke(_ogcServiceRemoteModel,
+                remoteParameterValues);
+
+        if (returnValue != null) {
+            returnValue = ClpSerializer.translateOutput(returnValue);
+        }
+
+        return returnValue;
+    }
+
+    @Override
     public void persist() throws SystemException {
         if (this.isNew()) {
             OGCServiceLocalServiceUtil.addOGCService(this);
@@ -247,7 +445,7 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
 
     @Override
     public OGCService toEscapedModel() {
-        return (OGCService) Proxy.newProxyInstance(OGCService.class.getClassLoader(),
+        return (OGCService) ProxyUtil.newProxyInstance(OGCService.class.getClassLoader(),
             new Class[] { OGCService.class }, new AutoEscapeBeanHandler(this));
     }
 
@@ -269,6 +467,7 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
         return clone;
     }
 
+    @Override
     public int compareTo(OGCService ogcService) {
         int value = 0;
 
@@ -289,17 +488,15 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof OGCServiceClp)) {
             return false;
         }
 
-        OGCServiceClp ogcService = null;
-
-        try {
-            ogcService = (OGCServiceClp) obj;
-        } catch (ClassCastException cce) {
-            return false;
-        }
+        OGCServiceClp ogcService = (OGCServiceClp) obj;
 
         long primaryKey = ogcService.getPrimaryKey();
 
@@ -344,6 +541,7 @@ public class OGCServiceClp extends BaseModelImpl<OGCService>
         return sb.toString();
     }
 
+    @Override
     public String toXmlString() {
         StringBundler sb = new StringBundler(34);
 

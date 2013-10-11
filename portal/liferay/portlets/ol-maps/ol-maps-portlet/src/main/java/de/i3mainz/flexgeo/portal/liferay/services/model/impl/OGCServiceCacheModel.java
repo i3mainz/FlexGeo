@@ -6,7 +6,10 @@ import com.liferay.portal.model.CacheModel;
 
 import de.i3mainz.flexgeo.portal.liferay.services.model.OGCService;
 
-import java.io.Serializable;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
 import java.util.Date;
 
@@ -18,7 +21,7 @@ import java.util.Date;
  * @generated
  */
 public class OGCServiceCacheModel implements CacheModel<OGCService>,
-    Serializable {
+    Externalizable {
     public String uuid;
     public long serviceId;
     public long groupId;
@@ -59,6 +62,7 @@ public class OGCServiceCacheModel implements CacheModel<OGCService>,
         return sb.toString();
     }
 
+    @Override
     public OGCService toEntityModel() {
         OGCServiceImpl ogcServiceImpl = new OGCServiceImpl();
 
@@ -106,5 +110,54 @@ public class OGCServiceCacheModel implements CacheModel<OGCService>,
         ogcServiceImpl.resetOriginalValues();
 
         return ogcServiceImpl;
+    }
+
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        serviceId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        serviceName = objectInput.readUTF();
+        serviceURL = objectInput.readUTF();
+        serviceType = objectInput.readUTF();
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
+
+        objectOutput.writeLong(serviceId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+
+        if (serviceName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(serviceName);
+        }
+
+        if (serviceURL == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(serviceURL);
+        }
+
+        if (serviceType == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(serviceType);
+        }
     }
 }

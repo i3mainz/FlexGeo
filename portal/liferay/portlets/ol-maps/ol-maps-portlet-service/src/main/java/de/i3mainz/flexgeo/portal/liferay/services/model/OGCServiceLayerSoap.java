@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * This class is used by SOAP remote services, specifically {@link de.i3mainz.flexgeo.portal.liferay.services.service.http.OGCServiceLayerServiceSoap}.
  *
- * @author    Brian Wing Shun Chan
- * @see       de.i3mainz.flexgeo.portal.liferay.services.service.http.OGCServiceLayerServiceSoap
+ * @author Brian Wing Shun Chan
+ * @see de.i3mainz.flexgeo.portal.liferay.services.service.http.OGCServiceLayerServiceSoap
  * @generated
  */
 public class OGCServiceLayerSoap implements Serializable {

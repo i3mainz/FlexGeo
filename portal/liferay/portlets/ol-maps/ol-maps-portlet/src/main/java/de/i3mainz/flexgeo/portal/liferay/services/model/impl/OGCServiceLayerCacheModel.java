@@ -6,7 +6,10 @@ import com.liferay.portal.model.CacheModel;
 
 import de.i3mainz.flexgeo.portal.liferay.services.model.OGCServiceLayer;
 
-import java.io.Serializable;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 
 import java.util.Date;
 
@@ -18,7 +21,7 @@ import java.util.Date;
  * @generated
  */
 public class OGCServiceLayerCacheModel implements CacheModel<OGCServiceLayer>,
-    Serializable {
+    Externalizable {
     public String uuid;
     public long layerId;
     public long groupId;
@@ -62,6 +65,7 @@ public class OGCServiceLayerCacheModel implements CacheModel<OGCServiceLayer>,
         return sb.toString();
     }
 
+    @Override
     public OGCServiceLayer toEntityModel() {
         OGCServiceLayerImpl ogcServiceLayerImpl = new OGCServiceLayerImpl();
 
@@ -111,5 +115,57 @@ public class OGCServiceLayerCacheModel implements CacheModel<OGCServiceLayer>,
         ogcServiceLayerImpl.resetOriginalValues();
 
         return ogcServiceLayerImpl;
+    }
+
+    @Override
+    public void readExternal(ObjectInput objectInput) throws IOException {
+        uuid = objectInput.readUTF();
+        layerId = objectInput.readLong();
+        groupId = objectInput.readLong();
+        companyId = objectInput.readLong();
+        userId = objectInput.readLong();
+        createDate = objectInput.readLong();
+        modifiedDate = objectInput.readLong();
+        layerName = objectInput.readUTF();
+        layerServiceId = objectInput.readLong();
+        layerOptions = objectInput.readUTF();
+        layerDisplayOptions = objectInput.readUTF();
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput objectOutput)
+        throws IOException {
+        if (uuid == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(uuid);
+        }
+
+        objectOutput.writeLong(layerId);
+        objectOutput.writeLong(groupId);
+        objectOutput.writeLong(companyId);
+        objectOutput.writeLong(userId);
+        objectOutput.writeLong(createDate);
+        objectOutput.writeLong(modifiedDate);
+
+        if (layerName == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layerName);
+        }
+
+        objectOutput.writeLong(layerServiceId);
+
+        if (layerOptions == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layerOptions);
+        }
+
+        if (layerDisplayOptions == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(layerDisplayOptions);
+        }
     }
 }

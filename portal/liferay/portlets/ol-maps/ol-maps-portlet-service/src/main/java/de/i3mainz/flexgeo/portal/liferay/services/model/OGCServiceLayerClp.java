@@ -2,16 +2,19 @@ package de.i3mainz.flexgeo.portal.liferay.services.model;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.util.PortalUtil;
 
+import de.i3mainz.flexgeo.portal.liferay.services.service.ClpSerializer;
 import de.i3mainz.flexgeo.portal.liferay.services.service.OGCServiceLayerLocalServiceUtil;
 
 import java.io.Serializable;
 
-import java.lang.reflect.Proxy;
+import java.lang.reflect.Method;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -37,26 +40,32 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
     public OGCServiceLayerClp() {
     }
 
+    @Override
     public Class<?> getModelClass() {
         return OGCServiceLayer.class;
     }
 
+    @Override
     public String getModelClassName() {
         return OGCServiceLayer.class.getName();
     }
 
+    @Override
     public long getPrimaryKey() {
         return _layerId;
     }
 
+    @Override
     public void setPrimaryKey(long primaryKey) {
         setLayerId(primaryKey);
     }
 
+    @Override
     public Serializable getPrimaryKeyObj() {
-        return new Long(_layerId);
+        return _layerId;
     }
 
+    @Override
     public void setPrimaryKeyObj(Serializable primaryKeyObj) {
         setPrimaryKey(((Long) primaryKeyObj).longValue());
     }
@@ -150,100 +159,263 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
         }
     }
 
+    @Override
     public String getUuid() {
         return _uuid;
     }
 
+    @Override
     public void setUuid(String uuid) {
         _uuid = uuid;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUuid", String.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, uuid);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getLayerId() {
         return _layerId;
     }
 
+    @Override
     public void setLayerId(long layerId) {
         _layerId = layerId;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setLayerId", long.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, layerId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getGroupId() {
         return _groupId;
     }
 
+    @Override
     public void setGroupId(long groupId) {
         _groupId = groupId;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setGroupId", long.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, groupId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getCompanyId() {
         return _companyId;
     }
 
+    @Override
     public void setCompanyId(long companyId) {
         _companyId = companyId;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCompanyId", long.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, companyId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getUserId() {
         return _userId;
     }
 
+    @Override
     public void setUserId(long userId) {
         _userId = userId;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setUserId", long.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, userId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getUserUuid() throws SystemException {
         return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
     }
 
+    @Override
     public void setUserUuid(String userUuid) {
         _userUuid = userUuid;
     }
 
+    @Override
     public Date getCreateDate() {
         return _createDate;
     }
 
+    @Override
     public void setCreateDate(Date createDate) {
         _createDate = createDate;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setCreateDate", Date.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, createDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public Date getModifiedDate() {
         return _modifiedDate;
     }
 
+    @Override
     public void setModifiedDate(Date modifiedDate) {
         _modifiedDate = modifiedDate;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setModifiedDate", Date.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, modifiedDate);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getLayerName() {
         return _layerName;
     }
 
+    @Override
     public void setLayerName(String layerName) {
         _layerName = layerName;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setLayerName", String.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, layerName);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public long getLayerServiceId() {
         return _layerServiceId;
     }
 
+    @Override
     public void setLayerServiceId(long layerServiceId) {
         _layerServiceId = layerServiceId;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setLayerServiceId", long.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, layerServiceId);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getLayerOptions() {
         return _layerOptions;
     }
 
+    @Override
     public void setLayerOptions(String layerOptions) {
         _layerOptions = layerOptions;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setLayerOptions", String.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, layerOptions);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
     }
 
+    @Override
     public String getLayerDisplayOptions() {
         return _layerDisplayOptions;
     }
 
+    @Override
     public void setLayerDisplayOptions(String layerDisplayOptions) {
         _layerDisplayOptions = layerDisplayOptions;
+
+        if (_ogcServiceLayerRemoteModel != null) {
+            try {
+                Class<?> clazz = _ogcServiceLayerRemoteModel.getClass();
+
+                Method method = clazz.getMethod("setLayerDisplayOptions",
+                        String.class);
+
+                method.invoke(_ogcServiceLayerRemoteModel, layerDisplayOptions);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
+    }
+
+    @Override
+    public StagedModelType getStagedModelType() {
+        return new StagedModelType(PortalUtil.getClassNameId(
+                OGCServiceLayer.class.getName()));
     }
 
     public BaseModel<?> getOGCServiceLayerRemoteModel() {
@@ -255,6 +427,47 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
         _ogcServiceLayerRemoteModel = ogcServiceLayerRemoteModel;
     }
 
+    public Object invokeOnRemoteModel(String methodName,
+        Class<?>[] parameterTypes, Object[] parameterValues)
+        throws Exception {
+        Object[] remoteParameterValues = new Object[parameterValues.length];
+
+        for (int i = 0; i < parameterValues.length; i++) {
+            if (parameterValues[i] != null) {
+                remoteParameterValues[i] = ClpSerializer.translateInput(parameterValues[i]);
+            }
+        }
+
+        Class<?> remoteModelClass = _ogcServiceLayerRemoteModel.getClass();
+
+        ClassLoader remoteModelClassLoader = remoteModelClass.getClassLoader();
+
+        Class<?>[] remoteParameterTypes = new Class[parameterTypes.length];
+
+        for (int i = 0; i < parameterTypes.length; i++) {
+            if (parameterTypes[i].isPrimitive()) {
+                remoteParameterTypes[i] = parameterTypes[i];
+            } else {
+                String parameterTypeName = parameterTypes[i].getName();
+
+                remoteParameterTypes[i] = remoteModelClassLoader.loadClass(parameterTypeName);
+            }
+        }
+
+        Method method = remoteModelClass.getMethod(methodName,
+                remoteParameterTypes);
+
+        Object returnValue = method.invoke(_ogcServiceLayerRemoteModel,
+                remoteParameterValues);
+
+        if (returnValue != null) {
+            returnValue = ClpSerializer.translateOutput(returnValue);
+        }
+
+        return returnValue;
+    }
+
+    @Override
     public void persist() throws SystemException {
         if (this.isNew()) {
             OGCServiceLayerLocalServiceUtil.addOGCServiceLayer(this);
@@ -265,7 +478,7 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
 
     @Override
     public OGCServiceLayer toEscapedModel() {
-        return (OGCServiceLayer) Proxy.newProxyInstance(OGCServiceLayer.class.getClassLoader(),
+        return (OGCServiceLayer) ProxyUtil.newProxyInstance(OGCServiceLayer.class.getClassLoader(),
             new Class[] { OGCServiceLayer.class },
             new AutoEscapeBeanHandler(this));
     }
@@ -289,6 +502,7 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
         return clone;
     }
 
+    @Override
     public int compareTo(OGCServiceLayer ogcServiceLayer) {
         long primaryKey = ogcServiceLayer.getPrimaryKey();
 
@@ -303,17 +517,15 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof OGCServiceLayerClp)) {
             return false;
         }
 
-        OGCServiceLayerClp ogcServiceLayer = null;
-
-        try {
-            ogcServiceLayer = (OGCServiceLayerClp) obj;
-        } catch (ClassCastException cce) {
-            return false;
-        }
+        OGCServiceLayerClp ogcServiceLayer = (OGCServiceLayerClp) obj;
 
         long primaryKey = ogcServiceLayer.getPrimaryKey();
 
@@ -360,6 +572,7 @@ public class OGCServiceLayerClp extends BaseModelImpl<OGCServiceLayer>
         return sb.toString();
     }
 
+    @Override
     public String toXmlString() {
         StringBundler sb = new StringBundler(37);
 

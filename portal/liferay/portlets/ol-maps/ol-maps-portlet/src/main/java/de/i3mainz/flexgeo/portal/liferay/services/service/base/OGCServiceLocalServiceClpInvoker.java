@@ -4,7 +4,10 @@ import de.i3mainz.flexgeo.portal.liferay.services.service.OGCServiceLocalService
 
 import java.util.Arrays;
 
-
+/**
+ * @author Brian Wing Shun Chan
+ * @generated
+ */
 public class OGCServiceLocalServiceClpInvoker {
     private String _methodName0;
     private String[] _methodParameterTypes0;
@@ -26,22 +29,30 @@ public class OGCServiceLocalServiceClpInvoker {
     private String[] _methodParameterTypes8;
     private String _methodName9;
     private String[] _methodParameterTypes9;
+    private String _methodName10;
+    private String[] _methodParameterTypes10;
     private String _methodName11;
     private String[] _methodParameterTypes11;
     private String _methodName12;
     private String[] _methodParameterTypes12;
-    private String _methodName13;
-    private String[] _methodParameterTypes13;
     private String _methodName14;
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
     private String _methodName16;
     private String[] _methodParameterTypes16;
+    private String _methodName17;
+    private String[] _methodParameterTypes17;
+    private String _methodName18;
+    private String[] _methodParameterTypes18;
+    private String _methodName19;
+    private String[] _methodParameterTypes19;
+    private String _methodName68;
+    private String[] _methodParameterTypes68;
     private String _methodName69;
     private String[] _methodParameterTypes69;
-    private String _methodName70;
-    private String[] _methodParameterTypes70;
+    private String _methodName74;
+    private String[] _methodParameterTypes74;
     private String _methodName75;
     private String[] _methodParameterTypes75;
     private String _methodName76;
@@ -50,8 +61,6 @@ public class OGCServiceLocalServiceClpInvoker {
     private String[] _methodParameterTypes77;
     private String _methodName78;
     private String[] _methodParameterTypes78;
-    private String _methodName79;
-    private String[] _methodParameterTypes79;
 
     public OGCServiceLocalServiceClpInvoker() {
         _methodName0 = "addOGCService";
@@ -103,76 +112,88 @@ public class OGCServiceLocalServiceClpInvoker {
                 "com.liferay.portal.kernel.dao.orm.DynamicQuery"
             };
 
-        _methodName9 = "fetchOGCService";
+        _methodName9 = "dynamicQueryCount";
 
-        _methodParameterTypes9 = new String[] { "long" };
+        _methodParameterTypes9 = new String[] {
+                "com.liferay.portal.kernel.dao.orm.DynamicQuery",
+                "com.liferay.portal.kernel.dao.orm.Projection"
+            };
 
-        _methodName11 = "getPersistedModel";
+        _methodName10 = "fetchOGCService";
 
-        _methodParameterTypes11 = new String[] { "java.io.Serializable" };
+        _methodParameterTypes10 = new String[] { "long" };
 
-        _methodName12 = "getOGCServiceByUuidAndGroupId";
+        _methodName11 = "fetchOGCServiceByUuidAndCompanyId";
+
+        _methodParameterTypes11 = new String[] { "java.lang.String", "long" };
+
+        _methodName12 = "fetchOGCServiceByUuidAndGroupId";
 
         _methodParameterTypes12 = new String[] { "java.lang.String", "long" };
 
-        _methodName13 = "getOGCServices";
+        _methodName14 = "getPersistedModel";
 
-        _methodParameterTypes13 = new String[] { "int", "int" };
+        _methodParameterTypes14 = new String[] { "java.io.Serializable" };
 
-        _methodName14 = "getOGCServicesCount";
+        _methodName15 = "getOGCServiceByUuidAndCompanyId";
 
-        _methodParameterTypes14 = new String[] {  };
+        _methodParameterTypes15 = new String[] { "java.lang.String", "long" };
 
-        _methodName15 = "updateOGCService";
+        _methodName16 = "getOGCServiceByUuidAndGroupId";
 
-        _methodParameterTypes15 = new String[] {
+        _methodParameterTypes16 = new String[] { "java.lang.String", "long" };
+
+        _methodName17 = "getOGCServices";
+
+        _methodParameterTypes17 = new String[] { "int", "int" };
+
+        _methodName18 = "getOGCServicesCount";
+
+        _methodParameterTypes18 = new String[] {  };
+
+        _methodName19 = "updateOGCService";
+
+        _methodParameterTypes19 = new String[] {
                 "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService"
             };
 
-        _methodName16 = "updateOGCService";
+        _methodName68 = "getBeanIdentifier";
 
-        _methodParameterTypes16 = new String[] {
-                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
-                "boolean"
-            };
+        _methodParameterTypes68 = new String[] {  };
 
-        _methodName69 = "getBeanIdentifier";
+        _methodName69 = "setBeanIdentifier";
 
-        _methodParameterTypes69 = new String[] {  };
+        _methodParameterTypes69 = new String[] { "java.lang.String" };
 
-        _methodName70 = "setBeanIdentifier";
+        _methodName74 = "addOGCService";
 
-        _methodParameterTypes70 = new String[] { "java.lang.String" };
-
-        _methodName75 = "addOGCService";
-
-        _methodParameterTypes75 = new String[] {
+        _methodParameterTypes74 = new String[] {
                 "long", "java.lang.String", "java.lang.String", "java.net.URL",
                 "java.lang.String", "java.lang.String",
                 "com.liferay.portal.service.ServiceContext"
+            };
+
+        _methodName75 = "addEntryResources";
+
+        _methodParameterTypes75 = new String[] {
+                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
+                "boolean", "boolean"
             };
 
         _methodName76 = "addEntryResources";
 
         _methodParameterTypes76 = new String[] {
                 "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
-                "boolean", "boolean"
+                "java.lang.String[][]", "java.lang.String[][]"
             };
 
         _methodName77 = "addEntryResources";
 
-        _methodParameterTypes77 = new String[] {
-                "de.i3mainz.flexgeo.portal.liferay.services.model.OGCService",
-                "java.lang.String[][]", "java.lang.String[][]"
-            };
+        _methodParameterTypes77 = new String[] { "long", "boolean", "boolean" };
 
         _methodName78 = "addEntryResources";
 
-        _methodParameterTypes78 = new String[] { "long", "boolean", "boolean" };
-
-        _methodName79 = "addEntryResources";
-
-        _methodParameterTypes79 = new String[] {
+        _methodParameterTypes78 = new String[] {
                 "long", "java.lang.String[][]", "java.lang.String[][]"
             };
     }
@@ -231,54 +252,74 @@ public class OGCServiceLocalServiceClpInvoker {
 
         if (_methodName9.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes9, parameterTypes)) {
+            return OGCServiceLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery) arguments[0],
+                (com.liferay.portal.kernel.dao.orm.Projection) arguments[1]);
+        }
+
+        if (_methodName10.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
             return OGCServiceLocalServiceUtil.fetchOGCService(((Long) arguments[0]).longValue());
         }
 
         if (_methodName11.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.getPersistedModel((java.io.Serializable) arguments[0]);
+            return OGCServiceLocalServiceUtil.fetchOGCServiceByUuidAndCompanyId((java.lang.String) arguments[0],
+                ((Long) arguments[1]).longValue());
         }
 
         if (_methodName12.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes12, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.getOGCServiceByUuidAndGroupId((java.lang.String) arguments[0],
+            return OGCServiceLocalServiceUtil.fetchOGCServiceByUuidAndGroupId((java.lang.String) arguments[0],
                 ((Long) arguments[1]).longValue());
-        }
-
-        if (_methodName13.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes13, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.getOGCServices(((Integer) arguments[0]).intValue(),
-                ((Integer) arguments[1]).intValue());
         }
 
         if (_methodName14.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes14, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.getOGCServicesCount();
+            return OGCServiceLocalServiceUtil.getPersistedModel((java.io.Serializable) arguments[0]);
         }
 
         if (_methodName15.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes15, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.updateOGCService((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0]);
+            return OGCServiceLocalServiceUtil.getOGCServiceByUuidAndCompanyId((java.lang.String) arguments[0],
+                ((Long) arguments[1]).longValue());
         }
 
         if (_methodName16.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes16, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.updateOGCService((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0],
-                ((Boolean) arguments[1]).booleanValue());
+            return OGCServiceLocalServiceUtil.getOGCServiceByUuidAndGroupId((java.lang.String) arguments[0],
+                ((Long) arguments[1]).longValue());
+        }
+
+        if (_methodName17.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes17, parameterTypes)) {
+            return OGCServiceLocalServiceUtil.getOGCServices(((Integer) arguments[0]).intValue(),
+                ((Integer) arguments[1]).intValue());
+        }
+
+        if (_methodName18.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes18, parameterTypes)) {
+            return OGCServiceLocalServiceUtil.getOGCServicesCount();
+        }
+
+        if (_methodName19.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes19, parameterTypes)) {
+            return OGCServiceLocalServiceUtil.updateOGCService((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0]);
+        }
+
+        if (_methodName68.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes68, parameterTypes)) {
+            return OGCServiceLocalServiceUtil.getBeanIdentifier();
         }
 
         if (_methodName69.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes69, parameterTypes)) {
-            return OGCServiceLocalServiceUtil.getBeanIdentifier();
-        }
-
-        if (_methodName70.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes70, parameterTypes)) {
             OGCServiceLocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
+
+            return null;
         }
 
-        if (_methodName75.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes75, parameterTypes)) {
+        if (_methodName74.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes74, parameterTypes)) {
             return OGCServiceLocalServiceUtil.addOGCService(((Long) arguments[0]).longValue(),
                 (java.lang.String) arguments[1],
                 (java.lang.String) arguments[2], (java.net.URL) arguments[3],
@@ -287,32 +328,40 @@ public class OGCServiceLocalServiceClpInvoker {
                 (com.liferay.portal.service.ServiceContext) arguments[6]);
         }
 
-        if (_methodName76.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes76, parameterTypes)) {
+        if (_methodName75.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes75, parameterTypes)) {
             OGCServiceLocalServiceUtil.addEntryResources((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0],
                 ((Boolean) arguments[1]).booleanValue(),
                 ((Boolean) arguments[2]).booleanValue());
+
+            return null;
+        }
+
+        if (_methodName76.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes76, parameterTypes)) {
+            OGCServiceLocalServiceUtil.addEntryResources((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0],
+                (java.lang.String[]) arguments[1],
+                (java.lang.String[]) arguments[2]);
+
+            return null;
         }
 
         if (_methodName77.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes77, parameterTypes)) {
-            OGCServiceLocalServiceUtil.addEntryResources((de.i3mainz.flexgeo.portal.liferay.services.model.OGCService) arguments[0],
-                (java.lang.String[]) arguments[1],
-                (java.lang.String[]) arguments[2]);
+            OGCServiceLocalServiceUtil.addEntryResources(((Long) arguments[0]).longValue(),
+                ((Boolean) arguments[1]).booleanValue(),
+                ((Boolean) arguments[2]).booleanValue());
+
+            return null;
         }
 
         if (_methodName78.equals(name) &&
                 Arrays.deepEquals(_methodParameterTypes78, parameterTypes)) {
             OGCServiceLocalServiceUtil.addEntryResources(((Long) arguments[0]).longValue(),
-                ((Boolean) arguments[1]).booleanValue(),
-                ((Boolean) arguments[2]).booleanValue());
-        }
-
-        if (_methodName79.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes79, parameterTypes)) {
-            OGCServiceLocalServiceUtil.addEntryResources(((Long) arguments[0]).longValue(),
                 (java.lang.String[]) arguments[1],
                 (java.lang.String[]) arguments[2]);
+
+            return null;
         }
 
         throw new UnsupportedOperationException();

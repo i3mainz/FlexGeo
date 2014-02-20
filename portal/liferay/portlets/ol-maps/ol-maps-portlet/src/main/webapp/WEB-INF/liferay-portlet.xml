@@ -5,8 +5,10 @@
 	<portlet>
 		<portlet-name>1</portlet-name>
 		<icon>/maps/icon.png</icon>
+		<header-portlet-css>/lib/ol3js/ol.css</header-portlet-css>
 		<header-portlet-css>/css/main.css</header-portlet-css>
-		<header-portlet-javascript>/lib/OpenLayers-2.13/OpenLayers.js</header-portlet-javascript>
+		<header-portlet-javascript>/lib/ol3js/ol.js</header-portlet-javascript>
+<!-- 		<header-portlet-javascript>/lib/OpenLayers-2.13/OpenLayers.js</header-portlet-javascript> -->
 <!-- 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> -->
 	</portlet>
 	<portlet>

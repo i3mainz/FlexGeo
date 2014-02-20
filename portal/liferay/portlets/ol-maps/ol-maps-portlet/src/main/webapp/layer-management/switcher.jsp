@@ -4,7 +4,7 @@
 		<ul id="<portlet:namespace/>layerswitcher"
 			class="layerswitcher">
 			<%
-				for(int i_count=0; i_count <3; i_count++){
+				for(int i_count=0; i_count <1; i_count++){
 					%>
 					<%@ include file="/layer-management/view_layer.jsp" %>
 					<%

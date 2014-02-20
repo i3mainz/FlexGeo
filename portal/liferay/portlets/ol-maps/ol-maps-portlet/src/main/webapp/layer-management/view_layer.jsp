@@ -8,7 +8,7 @@
 	<li class="layerswitcher_layer_list">
 		<div id="<%=layerswitcherLayerPanelId%>">
 			<div style="float:left;">
-				<span id="<%=layerswitcherLayerTitel %>">Layer<%=i_count %></span>
+				<span id="<%=layerswitcherLayerTitel %>"><!-- Layer<%=i_count %>-->Twitter Merkel</span>
 			</div>
 			<div class="header toggler-header-collapsed" style="float:right;">
 				<span><liferay-ui:icon image="maximize" /></span>

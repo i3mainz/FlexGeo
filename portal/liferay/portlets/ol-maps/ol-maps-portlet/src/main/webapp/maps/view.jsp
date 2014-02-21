@@ -3,6 +3,9 @@
 <div id="map"></div>
 
 <script>
+
+var currentExtent;
+
 AUI().ready(function(A){
 // 		var layer = new OpenLayers.Layer.OSM("OSM Simple");
 
@@ -53,13 +56,39 @@ AUI().ready(function(A){
 	        })
 	      });
 		
+		function checkExtent(a,b){
+			var c1 = ol.extent.getCenter(a);
+			var c2 = ol.extent.getCenter(b);
+			for(var i=c1.length -1; i>=0; --i){
+				if(c1[i] != c2[i]){
+					return false;
+				}
+			}
+			c1 = ol.extent.getSize(a);
+			c2 = ol.extent.getSize(b);
+			return c1[0] == c2[0] && c1[1] == c2[1];
+		}
+		
 		function onMoveEnd(evt){
 			var map = evt.map;
 			var extent = map.getView().calculateExtent(map.getSize());
-			extent = ol.proj.transform(extent,'EPSG:900913','EPSG:4326');
-			Liferay.fire('MapExtentChanged',{
-				bbox: extent.toString()
-			});
+			if(currentExtent==null){
+				currentExtent = extent;
+			}else{
+				if(!checkExtent(currentExtent,extent)){
+					currentExtent = extent;
+					extent = ol.proj.transform(extent,'EPSG:900913','EPSG:4326');
+					Liferay.fire('MapExtentChanged',{
+						bbox:{
+							lonmin: extent[0],
+							latmin: extent[1],
+							lonmax: extent[2],
+							latmax: extent[3]
+						}
+					});
+				}
+				
+			}
 		}
 		
 		map.on('moveend',onMoveEnd);

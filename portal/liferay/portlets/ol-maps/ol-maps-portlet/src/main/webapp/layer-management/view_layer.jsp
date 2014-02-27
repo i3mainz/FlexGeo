@@ -8,7 +8,7 @@
 	<li class="layerswitcher_layer_list">
 		<div id="<%=layerswitcherLayerPanelId%>">
 			<div style="float:left;">
-				<span id="<%=layerswitcherLayerTitel %>"><!-- Layer<%=i_count %>-->Twitter Merkel</span>
+				<span id="<%=layerswitcherLayerTitel %>"><!-- Layer<%=i_count %>-->Twitter</span>
 			</div>
 			<div class="header toggler-header-collapsed" style="float:right;">
 				<span><liferay-ui:icon image="maximize" /></span>
@@ -23,12 +23,19 @@
 					<div class="content toggler-content-collapsed">
 						<div id="<%=transparencySliderId %>"></div>
 						<aui:script use="slider">
-							new A.Slider({
+							var slider = new A.Slider({
 								min:0,
 								max:100,
 								value:70,
-								length:'250px'
+								length:'250px'								
 	        				}).render('#<%=transparencySliderId %>');
+	        				
+	        				slider.on('thumbMove', function(evt){
+	        					var opacity = evt.currentTarget.getValue();
+	        					Liferay.fire('LayerOpacityChanged',{
+									opacity: opacity
+								});
+	        				});        				
 						</aui:script>
 						<aui:script use="aui-editable-deprecated">
 							new A.Editable({

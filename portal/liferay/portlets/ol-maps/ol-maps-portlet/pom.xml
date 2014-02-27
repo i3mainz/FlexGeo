@@ -31,5 +31,10 @@
 			<artifactId>ol-maps-portlet-service</artifactId>
 			<version>${pom.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.0.0.RELEASE</version>
+		</dependency>
 	</dependencies>
 </project>

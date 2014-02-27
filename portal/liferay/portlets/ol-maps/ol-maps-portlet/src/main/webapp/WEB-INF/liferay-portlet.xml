@@ -5,9 +5,11 @@
 	<portlet>
 		<portlet-name>1</portlet-name>
 		<icon>/maps/icon.png</icon>
-		<header-portlet-css>/lib/ol3js/ol.css</header-portlet-css>
+<!-- 		<header-portlet-css>/lib/ol3js/beta1/ol.css</header-portlet-css> -->
+		<header-portlet-css>http://ol3js.org/en/master/css/ol.css</header-portlet-css>
 		<header-portlet-css>/css/main.css</header-portlet-css>
-		<header-portlet-javascript>/lib/ol3js/ol.js</header-portlet-javascript>
+<!-- 		<header-portlet-javascript>/lib/ol3js/beta1/ol.js</header-portlet-javascript> -->
+		<header-portlet-javascript>http://ol3js.org/en/master/build/ol.js</header-portlet-javascript>
 <!-- 		<header-portlet-javascript>/lib/OpenLayers-2.13/OpenLayers.js</header-portlet-javascript> -->
 <!-- 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> -->
 	</portlet>
@@ -16,8 +18,13 @@
 		<icon>/layer-management/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<header-portlet-css>/layer-management/css/slider.css</header-portlet-css>
-<!-- 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> -->
-		<footer-portlet-javascript>/layer-management/js/Slider.js</footer-portlet-javascript>
+<!-- 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> 
+		<footer-portlet-javascript>/layer-management/js/Slider.js</footer-portlet-javascript>-->
+	</portlet>
+	<portlet>
+		<portlet-name>3</portlet-name>
+		<icon>/maps/icon.png</icon>
+<!-- 		<header-portlet-css>/css/main.css</header-portlet-css> -->
 	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>

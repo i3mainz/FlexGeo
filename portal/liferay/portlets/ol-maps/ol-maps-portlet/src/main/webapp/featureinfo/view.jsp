@@ -2,11 +2,6 @@
 
 <div id="infocontainer"></div>
 <div id="infocontainer2">
-	<h3></h3>
-	<div>
-		<span id="tweetnutzer"></span>
-		<span id="tweettext"></span>
-	</div>
 </div>
 
 <script>
@@ -29,7 +24,20 @@ AUI().ready('aui-io-request',function(A){
 			  	success: function() {
 			  		console.log("Hallo hier bin ich");
 			  		console.log(this.get('responseData'));
-			     	A.one('#infocontainer2').setContent(this.get('responseData').features[0].properties.benutzer);
+			  		var container = A.one('#infocontainer2');
+			  		var features = this.get('responseData').features;
+			  		features.forEach(function(feature){
+			  			console.log(feature);
+			  			var properties = feature.properties;
+			  			var header = A.Node.create('<h3>TESTHEADER</h3>');
+			  			header.appendTo(container);
+			  			var name = A.Node.create('<div><span>'+properties.benutzer+"</span>");
+			  			name.appendTo(container);
+			  			var datum = A.Node.create('<span>'+properties.zeit+"</span></div>");
+			  			datum.appendTo(container);
+			  			var text = A.Node.create('<div>'+properties.tweet+"</div>");
+			  			text.appendTo(container);
+			  		});
 			   	}
 			  }
 		});

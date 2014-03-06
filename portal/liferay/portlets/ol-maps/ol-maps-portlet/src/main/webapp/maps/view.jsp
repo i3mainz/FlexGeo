@@ -7,54 +7,93 @@
 var currentExtent;
 
 AUI().ready(function(A){
-// 		var layer = new OpenLayers.Layer.OSM("OSM Simple");
-
-// 		var map = new OpenLayers.Map('map');
-// 		map.addLayers([ layer]);
-// 		map.zoomToMaxExtent();
-		
+	
 		var map = new ol.Map({
 	        target: 'map',
-	        layers: [
-// 	          new ol.layer.Tile({
-// 	            source: new ol.source.MapQuestOpenAerial()
-// 	          })
-		       	new ol.layer.Tile({
-		        	source: new ol.source.OSM()
-		        })/*,
-	            new ol.layer.Image({
-	                source: new ol.source.ImageWMS(({
-	                  url: 'http://tweetmap.fh-mainz.de/geoserver/cite/wms',
-	                  params: {
-	                	  'LAYERS': 'cite:tweets_time',
-	                	  'transparent': true,
-	                	  'STYLES':'TweetHeatmap',
-	                	  'TIME': '2014-02-12T13:53:53.861Z/2014-02-19T22:03:10.098Z' ,
-	                	 'CQL_FILTER': 'thema_id=693'
-	                  },
-	                  serverType: 'geoserver'
-	                }))
-	            })*/,
-	            new ol.layer.Tile({
-	                source: new ol.source.TileWMS(/** @type {olx.source.TileWMSOptions} */ ({
-	                  url: 'http://tweetmap.fh-mainz.de/geoserver/cite/wms',
-	                  params: {
-	                	  'LAYERS': 'cite:tweets_time', 
-	                	  'TILED': true,
-	                	  'STYLES':'TweetBird'/*,
-	                	  'TIME': '2014-02-12T13:53:53.861Z/2014-02-19T22:03:10.098Z' */,
-	                	 'CQL_FILTER': 'thema_id=<%=reportID%>'
-	                  },
-	                  serverType: 'geoserver'
-	                }))
-	            })
-	        ],
 	       	renderer: 'canvas',
 	        view: new ol.View2D({
-	          center: ol.proj.transform([8.23,49.99], 'EPSG:4326', 'EPSG:900913'),
-	          zoom: 10
+	          center: ol.proj.transform([0,0], 'EPSG:4326', 'EPSG:900913'),
+	          zoom: 2
 	        })
-	      });
+	    });
+		
+		var basismapkey = <%=basismap%>;
+		
+		var basismap;
+		
+		if(basismapkey==<%=OLMapConstants.BASISMAP_MAPQUEST_FULL%>){
+			 basismap = new ol.layer.Group({
+				 layers: [
+		      		new ol.layer.Tile({
+		        		source: new ol.source.MapQuest({layer: 'sat'})
+		      		}),
+		      		new ol.layer.Tile({
+		        		source: new ol.source.MapQuest({layer: 'hyb'})
+		      		})
+		 		]
+			 });
+		}else if(basismapkey==<%=OLMapConstants.BASISMAP_MAPQUEST_OSM%>){
+			basismap = new ol.layer.Tile({
+   				source: new ol.source.MapQuest({layer: 'osm'})
+ 			});
+		}else if(basismapkey==<%=OLMapConstants.BASISMAP_MAPQUEST_SAT%>){
+			basismap = new ol.layer.Tile({
+    			source: new ol.source.MapQuest({layer: 'sat'})
+  			});
+		}else if(basismapkey==<%=OLMapConstants.BASISMAP_BING%>){
+			//TODO
+		}else{
+			basismap = new ol.layer.Tile({
+	        	source: new ol.source.OSM()
+	        });
+		}
+		
+		map.addLayer(basismap);
+		
+		<%
+		for (Iterator<Entry<Integer,OLMapsLayer>> itr = layers.entrySet().iterator(); itr.hasNext();) {
+			Entry<Integer, OLMapsLayer> layerEntry = itr.next();
+			Map<String, Object> params = layerEntry.getValue().getParams();
+			if(layerEntry.getKey()!=0){
+		%>
+				var layer;
+				var test = <%=params.get("TILED")%>;				
+				if(test==false){
+					 layer = new ol.layer.Image({
+			            source: new ol.source.ImageWMS(({
+			                url: '<%=layerEntry.getValue().getUrl()%>',
+			                params: {
+			              	  'LAYERS': '<%=params.get("LAYERS")%>', 
+			              	  'TILED': <%=params.get("TILED")%>,
+			              	  'STYLES':'<%=params.get("STYLES")%>',
+			              	  'CQL_FILTER': 'thema_id=<%=reportID%>'
+			                },
+			                serverType: '<%=params.get("serverType")%>',
+			              })),
+			              opacity: <%=layerEntry.getValue().getOpacity()/100%>
+			        });
+				}else{
+					layer = new ol.layer.Tile({
+			            source: new ol.source.TileWMS(({
+			                url: '<%=layerEntry.getValue().getUrl()%>',
+			                params: {
+			              	  'LAYERS': '<%=params.get("LAYERS")%>', 
+			              	  'TILED': <%=params.get("TILED")%>,
+			              	  'STYLES':'<%=params.get("STYLES")%>',
+			              	  'CQL_FILTER': 'thema_id=<%=reportID%>'
+			                },
+			                serverType: '<%=params.get("serverType")%>',
+			              })),
+			              opacity: <%=layerEntry.getValue().getOpacity()/100%>
+			        });
+				}
+				
+				map.addLayer(layer);
+		
+		<%
+			}
+		}
+		%>
 		
 		function checkExtent(a,b){
 			var c1 = ol.extent.getCenter(a);
@@ -102,7 +141,7 @@ AUI().ready(function(A){
 			var viewResolution = (map.getView().getResolution());
 			var viewProjection = (map.getView().getProjection());
 			var clickPosition = evt.coordinate;
-			var layer = map.getLayers().getAt(1);
+			var layer = map.getLayers().getAt(map.getLayers().getLength()-1);
 			var source = layer.getSource();
 			if(source instanceof ol.source.TileWMS || source instanceof ol.source.ImageWMS){
 				var url = source.getGetFeatureInfoUrl(
@@ -153,6 +192,15 @@ AUI().ready(function(A){
 					layer.setOpacity(parseInt(opacity) / 100);
 				}
 			});
+		});
+		
+		Liferay.on('LayerSettingChanged', function(event){
+			var layer = map.getLayers().getAt(event.layerID);
+			if(event.key=="visibility"){
+				layer.setVisible(event.value);
+			}else if (event.key="opacity"){
+				layer.setOpacity(parseInt(event.value) / 100);
+			}
 		});
 		
 });

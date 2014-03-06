@@ -12,6 +12,10 @@
 			<name>view-jsp</name>
 			<value>/maps/view.jsp</value>
 		</init-param>
+		<init-param>
+			<name>config-jsp</name>
+			<value>/maps/configuration.jsp</value>
+		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
 			<mime-type>text/html</mime-type>

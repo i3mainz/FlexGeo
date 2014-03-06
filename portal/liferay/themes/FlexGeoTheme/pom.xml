@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <artifactId>themes</artifactId>
+        <groupId>de.i3mainz.flexgeo.portal.liferay</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+	<groupId>de.i3mainz.flexgeo.portal.liferay.themes</groupId>
+	<artifactId>FlexGeoTheme</artifactId>
+	<packaging>war</packaging>
+	<name>FlexGeoTheme Theme</name>
+	<properties>
+		<liferay.theme.parent>_styled</liferay.theme.parent>
+		<liferay.theme.type>vm</liferay.theme.type>
+	</properties>
+</project>

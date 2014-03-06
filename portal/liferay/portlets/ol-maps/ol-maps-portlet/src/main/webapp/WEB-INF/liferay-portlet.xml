@@ -5,6 +5,7 @@
 	<portlet>
 		<portlet-name>1</portlet-name>
 		<icon>/maps/icon.png</icon>
+		<configuration-action-class>de.i3mainz.flexgeo.portal.liferay.configuration.olmaps.OLMapConfigurationActionImpl</configuration-action-class>
 <!-- 		<header-portlet-css>/lib/ol3js/beta1/ol.css</header-portlet-css> -->
 		<header-portlet-css>http://ol3js.org/en/master/css/ol.css</header-portlet-css>
 		<header-portlet-css>/css/main.css</header-portlet-css>

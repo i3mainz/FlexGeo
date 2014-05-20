@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="de.i3mainz.springframework.swe.n52.sos.core.SOSTemplate"
+		id="sosReader">
+		<property name="connectionParameter" ref="sosConnection" />
+	</bean>
+	
+	<bean id="sosConnection"
+		class="de.i3mainz.springframework.swe.n52.sos.SOSConnectionParameter">
+		<property value="http://10.153.101.11:8180/52nSOSv3.5.0/sos"
+			name="url" />
+		<property name="version" value="1.0.0" />
+		<property name="binding" value="SOAP" />
+	</bean>
+
+</beans>

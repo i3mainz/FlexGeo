@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-        <artifactId>portlets</artifactId>
-        <groupId>de.i3mainz.flexgeo.portal.liferay</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+		<artifactId>portlets</artifactId>
+		<groupId>de.i3mainz.flexgeo.portal.liferay</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 	<groupId>de.i3mainz.flexgeo.portal.liferay.portlets</groupId>
 	<artifactId>TimeChartPortlet</artifactId>
 	<packaging>war</packaging>
@@ -15,6 +16,16 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>4.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc-portlet</artifactId>
+			<version>4.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>de.i3mainz.springframework.ogc.swe</groupId>
+			<artifactId>spring-sos</artifactId>
+			<version>1.0.0.BUILD-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

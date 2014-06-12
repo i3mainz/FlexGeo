@@ -6,11 +6,9 @@
         <groupId>de.i3mainz.flexgeo.portal.liferay</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-	<groupId>de.i3mainz.flexgeo.portal.liferay</groupId>
 	<artifactId>SpringXDClient</artifactId>
 	<packaging>war</packaging>
 	<name>SpringXDClient Portlet</name>
-	<version>0.0.1-SNAPSHOT</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -57,6 +55,12 @@
 			<groupId>org.springframework.xd</groupId>
 			<artifactId>spring-xd-rest-client</artifactId>
 			<version>1.0.0.M5</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

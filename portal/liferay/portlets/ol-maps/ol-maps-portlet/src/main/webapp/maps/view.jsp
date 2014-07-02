@@ -11,7 +11,7 @@ AUI().ready(function(A){
 		var map = new ol.Map({
 	        target: 'map',
 	       	renderer: 'canvas',
-	        view: new ol.View2D({
+	        view: new ol.View({
 	          center: ol.proj.transform([0,0], 'EPSG:4326', 'EPSG:900913'),
 	          zoom: 2
 	        })

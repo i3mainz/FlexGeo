@@ -141,7 +141,7 @@ AUI().ready(function(A){
 			var viewResolution = (map.getView().getResolution());
 			var viewProjection = (map.getView().getProjection());
 			var clickPosition = evt.coordinate;
-			var layer = map.getLayers().getAt(map.getLayers().getLength()-1);
+			var layer = map.getLayers().item(map.getLayers().getLength()-1);
 			var source = layer.getSource();
 			if(source instanceof ol.source.TileWMS || source instanceof ol.source.ImageWMS){
 				var url = source.getGetFeatureInfoUrl(
@@ -195,7 +195,7 @@ AUI().ready(function(A){
 		});
 		
 		Liferay.on('LayerSettingChanged', function(event){
-			var layer = map.getLayers().getAt(event.layerID);
+			var layer = map.getLayers().item(event.layerID);
 			if(event.key=="visibility"){
 				layer.setVisible(event.value);
 			}else if (event.key="opacity"){

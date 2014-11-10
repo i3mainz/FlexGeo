@@ -12,10 +12,9 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import org.springframework.hateoas.PagedResources;
-import org.springframework.xd.rest.client.domain.ModuleDefinitionResource;
-import org.springframework.xd.rest.client.domain.RESTModuleType;
-import org.springframework.xd.rest.client.domain.StreamDefinitionResource;
-import org.springframework.xd.rest.client.domain.XDRuntime;
+import org.springframework.xd.rest.domain.ModuleDefinitionResource;
+import org.springframework.xd.rest.domain.RESTModuleType;
+import org.springframework.xd.rest.domain.StreamDefinitionResource;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

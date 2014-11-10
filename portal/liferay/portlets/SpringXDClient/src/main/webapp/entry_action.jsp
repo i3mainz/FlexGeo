@@ -28,7 +28,7 @@ StreamDefinitionResource stream = (StreamDefinitionResource)row.getObject();
 	<c:if
 		test="<%=(true)%>">
 		<c:choose>
-			<c:when test="<%=stream.isDeployed()%>">
+			<c:when test="<%=stream.getStatus().equalsIgnoreCase(\"deployed\")%>">
 				<portlet:actionURL var="deactivateEntryURL" name="editStream">
 					<portlet:param name="mvcPath" value="edit_stream.jsp" />
 					<portlet:param name="<%=Constants.CMD%>"
@@ -39,7 +39,7 @@ StreamDefinitionResource stream = (StreamDefinitionResource)row.getObject();
 				</portlet:actionURL>
 				<liferay-ui:icon-deactivate url="<%=deactivateEntryURL%>" />
 			</c:when>
-			<c:when test="<%=!stream.isDeployed()%>">
+			<c:when test="<%=stream.getStatus().equalsIgnoreCase(\"undeployed\")%>">
 				<portlet:actionURL var="activateEntryURL" name="editStream">
 					<portlet:param name="mvcPath" value="edit_stream.jsp" />
 					<portlet:param name="<%=Constants.CMD%>"

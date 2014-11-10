@@ -16,7 +16,7 @@
 	/>
 
 	<liferay-ui:search-container-row
-		className="org.springframework.xd.rest.client.domain.StreamDefinitionResource"
+		className="org.springframework.xd.rest.domain.StreamDefinitionResource"
 		keyProperty="name"
 		modelVar="stream"
 	>
@@ -33,7 +33,7 @@
 		<liferay-ui:search-container-column-text
 			name="Running">
 			<c:choose>
-				<c:when test="<%=stream.isDeployed()%>">
+				<c:when test="<%=stream.getStatus().equalsIgnoreCase(\"deployed\")%>">
 					<liferay-ui:icon image="activate" />
 				</c:when>
 				<c:otherwise>

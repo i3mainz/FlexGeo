@@ -17,7 +17,7 @@
 <%@ page import="com.liferay.portal.kernel.util.*" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="org.springframework.xd.rest.client.domain.*"%>
+<%@ page import="org.springframework.xd.rest.domain.*"%>
 <%@ page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 
 <liferay-theme:defineObjects />

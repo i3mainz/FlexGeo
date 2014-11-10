@@ -4,10 +4,10 @@ import java.net.URI;
 
 import org.springframework.hateoas.PagedResources;
 import org.springframework.xd.rest.client.SpringXDOperations;
-import org.springframework.xd.rest.client.domain.ModuleDefinitionResource;
-import org.springframework.xd.rest.client.domain.RESTModuleType;
-import org.springframework.xd.rest.client.domain.StreamDefinitionResource;
 import org.springframework.xd.rest.client.impl.SpringXDTemplate;
+import org.springframework.xd.rest.domain.ModuleDefinitionResource;
+import org.springframework.xd.rest.domain.RESTModuleType;
+import org.springframework.xd.rest.domain.StreamDefinitionResource;
 
 import de.i3mainz.flexgeo.portal.liferay.springframework.xd.services.service.SpringXDAdminService;
 
@@ -36,7 +36,7 @@ public class SpringXDAdminServiceImpl implements SpringXDAdminService {
 
 	@Override
 	public void startStream(String name) {
-		xdOps.streamOperations().deploy(name);	
+		xdOps.streamOperations().deploy(name, null);
 	}
 
 	@Override

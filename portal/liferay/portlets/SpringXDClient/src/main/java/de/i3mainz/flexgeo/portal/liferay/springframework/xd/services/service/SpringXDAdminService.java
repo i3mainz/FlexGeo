@@ -1,9 +1,9 @@
 package de.i3mainz.flexgeo.portal.liferay.springframework.xd.services.service;
 
 import org.springframework.hateoas.PagedResources;
-import org.springframework.xd.rest.client.domain.ModuleDefinitionResource;
-import org.springframework.xd.rest.client.domain.RESTModuleType;
-import org.springframework.xd.rest.client.domain.StreamDefinitionResource;
+import org.springframework.xd.rest.domain.ModuleDefinitionResource;
+import org.springframework.xd.rest.domain.RESTModuleType;
+import org.springframework.xd.rest.domain.StreamDefinitionResource;
 
 public interface SpringXDAdminService {
 	PagedResources<StreamDefinitionResource> getStreams();

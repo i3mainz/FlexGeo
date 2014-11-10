@@ -20,7 +20,7 @@ public class OLMapsMapServiceImpl implements OLMapsMapService {
 		params.put("serverType", "geoserver");
 		layerList.put(1, new OLMapsLayer("R" + reportID + "L" + 1,
 				"HeatMap", "Tweetverteilung als HeatMap", 100,
-				"http://tweetmap.fh-mainz.de/geoserver/cite/wms", params));
+				"http://tweetmap.hs-mainz.de/geoserver/cite/wms", params));
 		Map<String, Object> params2 = new HashMap<String, Object>();
 		params2.put("LAYERS", "cite:tweets_time");
 		params2.put("serverType", "geoserver");
@@ -28,7 +28,7 @@ public class OLMapsMapServiceImpl implements OLMapsMapService {
 		params2.put("STYLES", "TweetBird");
 		layerList.put(2, new OLMapsLayer("R" + reportID + "L" + 2,
 				"Tweetmap-TweetBird", "Layer von Tweetmap mit Tweet Bird", 100,
-				"http://tweetmap.fh-mainz.de/geoserver/cite/wms", params2));
+				"http://tweetmap.hs-mainz.de/geoserver/cite/wms", params2));
 	}
 
 	@Override

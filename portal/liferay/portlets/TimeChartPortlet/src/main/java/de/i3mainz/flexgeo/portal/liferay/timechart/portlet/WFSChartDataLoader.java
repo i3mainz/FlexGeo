@@ -22,7 +22,7 @@ public class WFSChartDataLoader implements ChartDataLoader {
 	}
 	
 	private void initialize(Long themaID,String bbox,int precision) {
-		String url = "http://tweetmap.fh-mainz.de/geoserver/cite/ows?"
+		String url = "http://tweetmap.hs-mainz.de/geoserver/cite/ows?"
 				+ "service=WFS&version=2.0.0&" + "request=GetFeature&"
 				+ "typeName=cite:tweets_time&"
 				+ "outputFormat=application/json&"

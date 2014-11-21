@@ -6,7 +6,7 @@
 		<display-name>Time Chart</display-name>
 		<portlet-class>de.i3mainz.flexgeo.portal.liferay.timechart.portlet.TimeChartPortlet</portlet-class>
 		<init-param>
-			<name>view-jsp</name>
+			<name>view-template</name>
 			<value>/view.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>

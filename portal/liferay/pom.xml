@@ -17,8 +17,8 @@
     <module>layouts</module>
   </modules>
 	<properties>
-		<liferay.version>6.2.0-GA1</liferay.version>
-		<liferay.maven.plugin.version>6.2.0-RC5</liferay.maven.plugin.version>
+		<liferay.version>6.2.1</liferay.version>
+		<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>

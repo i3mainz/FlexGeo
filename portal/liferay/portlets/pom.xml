@@ -14,7 +14,8 @@
 		<module>ol-maps</module>
 		<module>TimeChartPortlet</module>
     <module>SpringXDClient</module>
-  </modules>
+    <module>ReportListPortlet</module>
+	</modules>
 	<build>
 		<plugins>
 			<plugin>

@@ -47,4 +47,7 @@
 		<module>ol-maps-portlet</module>
 		<module>ol-maps-portlet-service</module>
 	</modules>
+	<properties>
+		<liferay.version>6.2.1</liferay.version>
+	</properties>
 </project>

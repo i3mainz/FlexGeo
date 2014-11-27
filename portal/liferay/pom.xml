@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>portal</artifactId>
@@ -14,8 +15,8 @@
 		<module>portlets</module>
 		<module>services</module>
 		<module>themes</module>
-    <module>layouts</module>
-  </modules>
+		<module>layouts</module>
+	</modules>
 	<properties>
 		<liferay.version>6.2.1</liferay.version>
 		<liferay.maven.plugin.version>6.2.1</liferay.maven.plugin.version>
@@ -64,4 +65,17 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>Liferay</id>
+			<url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
+			<snapshots />
+		</repository>
+	</repositories>
+	<pluginRepositories>
+        <pluginRepository>
+           <id>liferay-plugin</id>
+           <url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
+        </pluginRepository>
+     </pluginRepositories>
 </project>

@@ -9,8 +9,6 @@ import com.liferay.portal.service.BaseLocalService;
 import com.liferay.portal.service.InvokableLocalService;
 import com.liferay.portal.service.PersistedModelLocalService;
 
-import de.i3mainz.flexgeo.portal.liferay.services.model.OGCService;
-
 /**
  * Provides the local service interface for OGCService. Methods of this
  * service will not have security checks based on the propagated JAAS
